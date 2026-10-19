@@ -1,0 +1,1136 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Namibia Road Accident Dashboard</title>
+<style>
+/*
+  Leaflet 1.9.4 — https://leafletjs.com
+  Copyright (c) 2010-2023, Volodymyr Agafonkin
+  Copyright (c) 2010-2011, CloudMade
+  Released under the BSD 2-Clause License.
+  Inlined here because the artifact CSP only allows external stylesheets
+  from Google Fonts; redistributed with this notice per the license terms.
+*/
+
+/* required styles */
+
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	}
+.leaflet-container {
+	overflow: hidden;
+	}
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
+	  -webkit-user-drag: none;
+	}
+.leaflet-tile::selection {
+	background: transparent;
+}
+.leaflet-safari .leaflet-tile {
+	image-rendering: -webkit-optimize-contrast;
+	}
+.leaflet-safari .leaflet-tile-container {
+	width: 1600px;
+	height: 1600px;
+	-webkit-transform-origin: 0 0;
+	}
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	display: block;
+	}
+.leaflet-container .leaflet-overlay-pane svg {
+	max-width: none !important;
+	max-height: none !important;
+	}
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-shadow-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer,
+.leaflet-container .leaflet-tile {
+	max-width: none !important;
+	max-height: none !important;
+	width: auto;
+	padding: 0;
+	}
+
+.leaflet-container img.leaflet-tile {
+	mix-blend-mode: plus-lighter;
+}
+
+.leaflet-container.leaflet-touch-zoom {
+	-ms-touch-action: pan-x pan-y;
+	touch-action: pan-x pan-y;
+	}
+.leaflet-container.leaflet-touch-drag {
+	-ms-touch-action: pinch-zoom;
+	touch-action: none;
+	touch-action: pinch-zoom;
+}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.leaflet-container {
+	-webkit-tap-highlight-color: transparent;
+}
+.leaflet-container a {
+	-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);
+}
+.leaflet-tile {
+	filter: inherit;
+	visibility: hidden;
+	}
+.leaflet-tile-loaded {
+	visibility: inherit;
+	}
+.leaflet-zoom-box {
+	width: 0;
+	height: 0;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	z-index: 800;
+	}
+.leaflet-overlay-pane svg {
+	-moz-user-select: none;
+	}
+
+.leaflet-pane         { z-index: 400; }
+
+.leaflet-tile-pane    { z-index: 200; }
+.leaflet-overlay-pane { z-index: 400; }
+.leaflet-shadow-pane  { z-index: 500; }
+.leaflet-marker-pane  { z-index: 600; }
+.leaflet-tooltip-pane   { z-index: 650; }
+.leaflet-popup-pane   { z-index: 700; }
+
+.leaflet-map-pane canvas { z-index: 100; }
+.leaflet-map-pane svg    { z-index: 200; }
+
+.leaflet-vml-shape {
+	width: 1px;
+	height: 1px;
+	}
+.lvml {
+	behavior: url(#default#VML);
+	display: inline-block;
+	position: absolute;
+	}
+
+/* control positioning */
+
+.leaflet-control {
+	position: relative;
+	z-index: 800;
+	pointer-events: visiblePainted;
+	pointer-events: auto;
+	}
+.leaflet-top,
+.leaflet-bottom {
+	position: absolute;
+	z-index: 1000;
+	pointer-events: none;
+	}
+.leaflet-top {
+	top: 0;
+	}
+.leaflet-right {
+	right: 0;
+	}
+.leaflet-bottom {
+	bottom: 0;
+	}
+.leaflet-left {
+	left: 0;
+	}
+.leaflet-control {
+	float: left;
+	clear: both;
+	}
+.leaflet-right .leaflet-control {
+	float: right;
+	}
+.leaflet-top .leaflet-control {
+	margin-top: 10px;
+	}
+.leaflet-bottom .leaflet-control {
+	margin-bottom: 10px;
+	}
+.leaflet-left .leaflet-control {
+	margin-left: 10px;
+	}
+.leaflet-right .leaflet-control {
+	margin-right: 10px;
+	}
+
+/* zoom and fade animations */
+
+.leaflet-fade-anim .leaflet-popup {
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+	   -moz-transition: opacity 0.2s linear;
+	        transition: opacity 0.2s linear;
+	}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+	opacity: 1;
+	}
+.leaflet-zoom-animated {
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
+	}
+svg.leaflet-zoom-animated {
+	will-change: transform;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
+	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
+	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
+	}
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-pan-anim .leaflet-tile {
+	-webkit-transition: none;
+	   -moz-transition: none;
+	        transition: none;
+	}
+
+.leaflet-zoom-anim .leaflet-zoom-hide {
+	visibility: hidden;
+	}
+
+/* cursors */
+
+.leaflet-interactive {
+	cursor: pointer;
+	}
+.leaflet-grab {
+	cursor: -webkit-grab;
+	cursor:    -moz-grab;
+	cursor:         grab;
+	}
+.leaflet-crosshair,
+.leaflet-crosshair .leaflet-interactive {
+	cursor: crosshair;
+	}
+.leaflet-popup-pane,
+.leaflet-control {
+	cursor: auto;
+	}
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor:    -moz-grabbing;
+	cursor:         grabbing;
+	}
+
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-image-layer,
+.leaflet-pane > svg path,
+.leaflet-tile-container {
+	pointer-events: none;
+	}
+
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive,
+svg.leaflet-image-layer.leaflet-interactive path {
+	pointer-events: visiblePainted;
+	pointer-events: auto;
+	}
+
+/* visual tweaks */
+
+.leaflet-container {
+	background: #ddd;
+	outline-offset: 1px;
+	}
+.leaflet-container a {
+	color: #0078A8;
+	}
+.leaflet-zoom-box {
+	border: 2px dotted #38f;
+	background: rgba(255,255,255,0.5);
+	}
+
+/* general typography */
+.leaflet-container {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.5;
+	}
+
+/* general toolbar styles */
+
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 4px;
+	}
+.leaflet-bar a {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	}
+.leaflet-bar a,
+.leaflet-control-layers-toggle {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: block;
+	}
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+	background-color: #f4f4f4;
+	}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom: none;
+	}
+.leaflet-bar a.leaflet-disabled {
+	cursor: default;
+	background-color: #f4f4f4;
+	color: #bbb;
+	}
+
+.leaflet-touch .leaflet-bar a {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	}
+.leaflet-touch .leaflet-bar a:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	}
+.leaflet-touch .leaflet-bar a:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	}
+
+/* zoom control */
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+	font: bold 18px 'Lucida Console', Monaco, monospace;
+	text-indent: 1px;
+	}
+
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {
+	font-size: 22px;
+	}
+
+/* layers control */
+
+.leaflet-control-layers {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	background: #fff;
+	border-radius: 5px;
+	}
+.leaflet-control-layers-toggle {
+	width: 36px;
+	height: 36px;
+	}
+.leaflet-touch .leaflet-control-layers-toggle {
+	width: 44px;
+	height: 44px;
+	}
+.leaflet-control-layers .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+	display: none;
+	}
+.leaflet-control-layers-expanded .leaflet-control-layers-list {
+	display: block;
+	position: relative;
+	}
+.leaflet-control-layers-expanded {
+	padding: 6px 10px 6px 6px;
+	color: #333;
+	background: #fff;
+	}
+.leaflet-control-layers-scrollbar {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-right: 5px;
+	}
+.leaflet-control-layers-selector {
+	margin-top: 2px;
+	position: relative;
+	top: 1px;
+	}
+.leaflet-control-layers label {
+	display: block;
+	font-size: 13px;
+	font-size: 1.08333em;
+	}
+.leaflet-control-layers-separator {
+	height: 0;
+	border-top: 1px solid #ddd;
+	margin: 5px -10px 5px -6px;
+	}
+
+/* attribution and scale controls */
+
+.leaflet-container .leaflet-control-attribution {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	margin: 0;
+	}
+.leaflet-control-attribution,
+.leaflet-control-scale-line {
+	padding: 0 5px;
+	color: #333;
+	line-height: 1.4;
+	}
+.leaflet-control-attribution a {
+	text-decoration: none;
+	}
+.leaflet-control-attribution a:hover,
+.leaflet-control-attribution a:focus {
+	text-decoration: underline;
+	}
+.leaflet-attribution-flag {
+	display: inline !important;
+	vertical-align: baseline !important;
+	width: 1em;
+	height: 0.6669em;
+	}
+.leaflet-left .leaflet-control-scale {
+	margin-left: 5px;
+	}
+.leaflet-bottom .leaflet-control-scale {
+	margin-bottom: 5px;
+	}
+.leaflet-control-scale-line {
+	border: 2px solid #777;
+	border-top: none;
+	line-height: 1.1;
+	padding: 2px 5px 1px;
+	white-space: nowrap;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px #fff;
+	}
+.leaflet-control-scale-line:not(:first-child) {
+	border-top: 2px solid #777;
+	border-bottom: none;
+	margin-top: -2px;
+	}
+.leaflet-control-scale-line:not(:first-child):not(:last-child) {
+	border-bottom: 2px solid #777;
+	}
+
+.leaflet-touch .leaflet-control-attribution,
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	box-shadow: none;
+	}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	border: 2px solid rgba(0,0,0,0.2);
+	background-clip: padding-box;
+	}
+
+/* popup */
+
+.leaflet-popup {
+	position: absolute;
+	text-align: center;
+	margin-bottom: 20px;
+	}
+.leaflet-popup-content-wrapper {
+	padding: 1px;
+	text-align: left;
+	border-radius: 12px;
+	}
+.leaflet-popup-content {
+	margin: 13px 24px 13px 20px;
+	line-height: 1.3;
+	font-size: 13px;
+	font-size: 1.08333em;
+	min-height: 1px;
+	}
+.leaflet-popup-content p {
+	margin: 17px 0;
+	margin: 1.3em 0;
+	}
+.leaflet-popup-tip-container {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-top: -1px;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+	}
+.leaflet-popup-tip {
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+
+	margin: -10px auto 0;
+	pointer-events: auto;
+
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	background: white;
+	color: #333;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	}
+.leaflet-container a.leaflet-popup-close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	font: 16px/24px Tahoma, Verdana, sans-serif;
+	color: #757575;
+	text-decoration: none;
+	background: transparent;
+	}
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
+	color: #585858;
+	}
+.leaflet-popup-scrolled {
+	overflow: auto;
+	}
+
+.leaflet-oldie .leaflet-popup-content-wrapper {
+	-ms-zoom: 1;
+	}
+.leaflet-oldie .leaflet-popup-tip {
+	width: 24px;
+	margin: 0 auto;
+
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+	filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+	}
+
+.leaflet-oldie .leaflet-control-zoom,
+.leaflet-oldie .leaflet-control-layers,
+.leaflet-oldie .leaflet-popup-content-wrapper,
+.leaflet-oldie .leaflet-popup-tip {
+	border: 1px solid #999;
+	}
+
+/* div icon */
+
+.leaflet-div-icon {
+	background: #fff;
+	border: 1px solid #666;
+	}
+
+/* Tooltip */
+.leaflet-tooltip {
+	position: absolute;
+	padding: 6px;
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	color: #222;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	}
+.leaflet-tooltip.leaflet-interactive {
+	cursor: pointer;
+	pointer-events: auto;
+	}
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	position: absolute;
+	pointer-events: none;
+	border: 6px solid transparent;
+	background: transparent;
+	content: "";
+	}
+
+.leaflet-tooltip-bottom {
+	margin-top: 6px;
+}
+.leaflet-tooltip-top {
+	margin-top: -6px;
+}
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-top:before {
+	left: 50%;
+	margin-left: -6px;
+	}
+.leaflet-tooltip-top:before {
+	bottom: 0;
+	margin-bottom: -12px;
+	border-top-color: #fff;
+	}
+.leaflet-tooltip-bottom:before {
+	top: 0;
+	margin-top: -12px;
+	margin-left: -6px;
+	border-bottom-color: #fff;
+	}
+.leaflet-tooltip-left {
+	margin-left: -6px;
+}
+.leaflet-tooltip-right {
+	margin-left: 6px;
+}
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	top: 50%;
+	margin-top: -6px;
+	}
+.leaflet-tooltip-left:before {
+	right: 0;
+	margin-right: -12px;
+	border-left-color: #fff;
+	}
+.leaflet-tooltip-right:before {
+	left: 0;
+	margin-left: -12px;
+	border-right-color: #fff;
+	}
+
+@media print {
+	.leaflet-control {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+		}
+	}
+
+
+  :root{
+    color-scheme: dark;
+    --page:        #0d0d0d;
+    --surface:     #1a1a19;
+    --surface-2:   #202020;
+    --ink:         #f0efec;
+    --ink-2:       #c3c2b7;
+    --muted:       #898781;
+    --gridline:    #2c2c2a;
+    --baseline:    #383835;
+    --border:      rgba(255,255,255,0.10);
+    --accent:      #3987e5;      /* categorical slot 1 — sample incident reports */
+    --accent-dim:  rgba(57,135,229,0.28);
+    --sev-1:       #3a2020;      /* sequential red, step 1 (lowest) */
+    --sev-2:       #6b2b2b;
+    --sev-3:       #a3342f;
+    --sev-4:       #d0432f;
+    --sev-5:       #e66767;      /* sequential red, step 5 (highest) */
+    --warning:     #fab219;
+    --critical:    #e66767;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; height:100%; background:var(--page); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+  #app{ display:flex; height:100vh; height:100dvh; }
+
+  /* ---------------- sidebar ---------------- */
+  #sidebar{
+    width:360px; flex:0 0 360px; background:var(--surface);
+    border-right:1px solid var(--border);
+    display:flex; flex-direction:column; overflow-y:auto;
+    z-index:10;
+    padding-left: max(0px, env(safe-area-inset-left, 0px));
+  }
+  #sidebar::-webkit-scrollbar{ width:8px; }
+  #sidebar::-webkit-scrollbar-thumb{ background:var(--baseline); border-radius:4px; }
+
+  .sb-header{ padding:20px 20px 14px 20px; border-bottom:1px solid var(--border); }
+  .sb-eyebrow{ font-size:11px; letter-spacing:0.04em; color:var(--muted); margin-bottom:4px; }
+  .sb-title{ font-size:19px; font-weight:700; line-height:1.25; margin:0; }
+  .sb-sub{ font-size:12.5px; color:var(--ink-2); margin-top:6px; line-height:1.5; }
+
+  .sb-section{ padding:16px 20px; border-bottom:1px solid var(--border); }
+  .sb-section-title{ font-size:12px; font-weight:600; color:var(--ink-2); margin:0 0 10px 0; }
+
+  /* controls */
+  .seg{
+    display:flex; background:var(--surface-2); border-radius:9px; padding:3px;
+    border:1px solid var(--border); gap:2px;
+  }
+  .seg button{
+    flex:1; appearance:none; border:none; background:transparent; color:var(--ink-2);
+    font-size:12.5px; font-weight:600; padding:7px 6px; border-radius:7px; cursor:pointer;
+    font-family:inherit;
+  }
+  .seg button.active{ background:var(--accent); color:#fff; }
+
+  select.metric-select{
+    width:100%; background:var(--surface-2); border:1px solid var(--border);
+    color:var(--ink); font-size:13px; padding:9px 10px; border-radius:8px;
+    font-family:inherit; margin-top:8px;
+  }
+
+  .layer-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:9px 0;
+  }
+  .layer-row:first-child{ padding-top:0; }
+  .layer-label{ display:flex; align-items:center; gap:9px; font-size:13px; }
+  .swatch{ width:11px; height:11px; border-radius:50%; flex:0 0 auto; }
+  .swatch.region{ background:linear-gradient(135deg, var(--sev-3), var(--sev-5)); }
+  .swatch.incident{ background:var(--accent); box-shadow:0 0 0 2px var(--accent-dim); }
+
+  .toggle{
+    width:36px; height:20px; border-radius:999px; background:var(--baseline);
+    position:relative; cursor:pointer; border:none; flex:0 0 auto;
+  }
+  .toggle::after{
+    content:''; position:absolute; top:2px; left:2px; width:16px; height:16px;
+    border-radius:50%; background:var(--muted); transition:left 0.15s ease, background 0.15s ease;
+  }
+  .toggle.on{ background:var(--accent-dim); }
+  .toggle.on::after{ left:18px; background:var(--accent); }
+
+  /* KPI tiles */
+  .kpi-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .kpi-tile{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:10px;
+    padding:11px 12px;
+  }
+  .kpi-label{ font-size:11px; color:var(--muted); margin-bottom:4px; }
+  .kpi-value{ font-size:22px; font-weight:700; line-height:1; }
+  .kpi-delta{ font-size:11px; margin-top:5px; font-weight:600; }
+  .kpi-delta.up{ color:#e66767; }
+  .kpi-delta.down{ color:#0ca30c; }
+  .kpi-delta.flat{ color:var(--muted); }
+
+  /* chart */
+  .chart-wrap{ margin-top:4px; }
+  .chart-caption{ font-size:11px; color:var(--muted); margin-top:8px; line-height:1.5; }
+  svg.bars text{ fill:var(--muted); font-size:9px; }
+  svg.bars .bar{ fill:var(--accent); }
+  svg.bars .bar:hover{ fill:#5a9fec; }
+  svg.bars .peak{ fill:var(--sev-4); }
+
+  /* region detail / legend */
+  .legend-ramp{
+    height:10px; border-radius:5px; margin-top:8px;
+    background:linear-gradient(90deg, var(--sev-1), var(--sev-2), var(--sev-3), var(--sev-4), var(--sev-5));
+  }
+  .legend-labels{ display:flex; justify-content:space-between; font-size:10.5px; color:var(--muted); margin-top:5px; }
+
+  .source-note{ padding:16px 20px; font-size:11px; color:var(--muted); line-height:1.6; }
+  .source-note a{ color:var(--ink-2); }
+
+  /* ---------------- map ---------------- */
+  #mapWrap{ flex:1; position:relative; min-width:0; }
+  #map{ width:100%; height:100%; background:#141414; }
+
+  .leaflet-container{ background:#141414; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .leaflet-popup-content-wrapper{ background:var(--surface); color:var(--ink); border-radius:10px; }
+  .leaflet-popup-tip{ background:var(--surface); }
+  .leaflet-popup-content{ margin:13px 15px; font-size:13px; }
+  .leaflet-popup-content b{ display:block; font-size:14px; margin-bottom:6px; }
+  .popup-row{ display:flex; justify-content:space-between; gap:14px; padding:3px 0; border-bottom:1px dashed var(--border); }
+  .popup-row:last-child{ border-bottom:none; }
+  .popup-row .k{ color:var(--ink-2); }
+  .popup-row .v{ font-weight:700; }
+  .popup-foot{ margin-top:8px; font-size:11px; color:var(--muted); line-height:1.5; }
+  .leaflet-control-zoom a{ background:var(--surface) !important; color:var(--ink) !important; border-color:var(--border) !important; }
+  .leaflet-control-attribution{ background:rgba(26,26,25,0.85) !important; color:var(--muted) !important; }
+  .leaflet-control-attribution a{ color:var(--ink-2) !important; }
+
+  .mobile-toggle{
+    display:none; position:absolute; z-index:15;
+    top: calc(14px + env(safe-area-inset-top, 0px));
+    left: calc(14px + env(safe-area-inset-left, 0px));
+    background:var(--surface); border:1px solid var(--border); color:var(--ink);
+    padding:9px 14px; border-radius:9px; font-size:13px; font-weight:600; cursor:pointer;
+    font-family:inherit;
+  }
+
+  @media (max-width: 820px){
+    #sidebar{
+      position:absolute; inset:0 10% 0 0; max-width:360px; transform:translateX(-100%);
+      transition:transform 0.22s ease; box-shadow:4px 0 24px rgba(0,0,0,0.4);
+    }
+    #sidebar.open{ transform:translateX(0); }
+    .mobile-toggle{ display:block; }
+  }
+</style>
+
+<div id="app">
+  <aside id="sidebar">
+    <div class="sb-header">
+      <div class="sb-eyebrow">PROTOTYPE · OPENSTREETMAP + LEAFLET</div>
+      <h1 class="sb-title">Namibia Road Accident Dashboard</h1>
+      <div class="sb-sub">Regional crash statistics from the MVA Fund 2024 report, layered with individual incident reports as they're collected.</div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Year</div>
+      <div class="seg" id="yearSeg">
+        <button data-year="2024" class="active">2024</button>
+        <button data-year="2023">2023</button>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Layers</div>
+      <div class="layer-row">
+        <div class="layer-label"><span class="swatch region"></span>Regional severity</div>
+        <button class="toggle on" id="toggleRegions"></button>
+      </div>
+      <select class="metric-select" id="metricSelect">
+        <option value="fatalities">Fatalities</option>
+        <option value="crashes">Crashes</option>
+        <option value="injuries">Injuries</option>
+        <option value="casualties_per_100000">Casualties per 100,000 people</option>
+      </select>
+      <div class="layer-row" style="margin-top:14px;">
+        <div class="layer-label"><span class="swatch incident"></span>Incident reports</div>
+        <button class="toggle on" id="toggleIncidents"></button>
+      </div>
+    </div>
+
+    <div class="sb-section" id="kpiSection">
+      <div class="sb-section-title">National totals — <span id="kpiYear">2024</span></div>
+      <div class="kpi-grid">
+        <div class="kpi-tile">
+          <div class="kpi-label">Crashes</div>
+          <div class="kpi-value" id="kpiCrashes">—</div>
+          <div class="kpi-delta" id="kpiCrashesDelta"></div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-label">Fatalities</div>
+          <div class="kpi-value" id="kpiFatalities">—</div>
+          <div class="kpi-delta" id="kpiFatalitiesDelta"></div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-label">Injuries</div>
+          <div class="kpi-value" id="kpiInjuries">—</div>
+          <div class="kpi-delta" id="kpiInjuriesDelta"></div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-label">Crashes / fatality</div>
+          <div class="kpi-value" id="kpiRatio">—</div>
+          <div class="kpi-delta flat">national average</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Crashes by time of day — 2024, national</div>
+      <div class="chart-wrap" id="chartWrap"></div>
+      <div class="chart-caption">Evening peak (18:00–19:59) carries the most crashes — worth weighting into any live-report triage.</div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Severity legend</div>
+      <div class="legend-ramp"></div>
+      <div class="legend-labels"><span id="legMin">low</span><span id="legMax">high</span></div>
+      <div class="chart-caption">Circle size and color both scale with the selected metric. Markers sit at regional centroids — not precise crash locations — since this layer is aggregate MVA Fund data, not point-level.</div>
+    </div>
+
+    <div class="source-note">
+      Regional data: MVA Fund <i>Road Crash &amp; Claims Report 2024</i>. Incident-report layer shows individually sourced reports (news, crowdsourced) as the extraction pipeline comes online — currently one worked example near Okahandja–Otjiwarongo. Map tiles &copy; OpenStreetMap contributors.
+    </div>
+  </aside>
+
+  <div id="mapWrap">
+    <button class="mobile-toggle" id="mobileToggle">☰ Dashboard</button>
+    <div id="map"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+"use strict";
+
+// -----------------------------------------------------------------
+// Data
+// -----------------------------------------------------------------
+const REGIONS = {"ǁKaras": {"crashes_2024": 84, "crashes_2023": 97, "injuries_2024": 143, "injuries_2023": 194, "fatalities_2024": 18, "fatalities_2023": 21, "pedestrian_pct": 29, "rollover_pct": 36, "population": 109893, "casualties_per_100000": 147.0, "lat": -26.58, "lng": 18.13}, "Erongo": {"crashes_2024": 385, "crashes_2023": 381, "injuries_2024": 646, "injuries_2023": 666, "fatalities_2024": 37, "fatalities_2023": 47, "population": 240206, "casualties_per_100000": 284.0, "pedestrian_pct": 29, "rollover_pct": 24, "lat": -22.2, "lng": 15.4}, "Hardap": {"crashes_2024": 85, "crashes_2023": 112, "injuries_2024": 165, "injuries_2023": 281, "fatalities_2024": 17, "fatalities_2023": 26, "population": 106680, "casualties_per_100000": 171.0, "pedestrian_pct": 24, "rollover_pct": 44, "lat": -24.636, "lng": 17.959}, "Kavango East": {"crashes_2024": 163, "crashes_2023": 103, "injuries_2024": 296, "injuries_2023": 178, "fatalities_2024": 32, "fatalities_2023": 23, "population": 218421, "casualties_per_100000": 150.0, "pedestrian_pct": 45, "rollover_pct": 16, "lat": -17.93, "lng": 19.77}, "Kavango West": {"crashes_2024": 40, "crashes_2023": 55, "injuries_2024": 84, "injuries_2023": 99, "fatalities_2024": 12, "fatalities_2023": 17, "population": 123266, "casualties_per_100000": 78.0, "pedestrian_pct": 33, "rollover_pct": 23, "lat": -17.62, "lng": 18.62}, "Khomas": {"crashes_2024": 1126, "crashes_2023": 1074, "injuries_2024": 1629, "injuries_2023": 1506, "fatalities_2024": 49, "fatalities_2023": 48, "population": 494605, "casualties_per_100000": 339.0, "pedestrian_pct": 39, "rollover_pct": 6, "lat": -22.5594, "lng": 17.0832}, "Kunene": {"crashes_2024": 55, "crashes_2023": 64, "injuries_2024": 125, "injuries_2023": 148, "fatalities_2024": 25, "fatalities_2023": 15, "population": 120762, "casualties_per_100000": 124.0, "pedestrian_pct": 29, "rollover_pct": 29, "lat": -18.06, "lng": 13.84}, "Ohangwena": {"crashes_2024": 170, "crashes_2023": 117, "injuries_2024": 285, "injuries_2023": 223, "fatalities_2024": 37, "fatalities_2023": 29, "population": 337729, "casualties_per_100000": 95.0, "pedestrian_pct": 36, "rollover_pct": 22, "lat": -17.47, "lng": 16.33}, "Omaheke": {"crashes_2024": 71, "crashes_2023": 84, "injuries_2024": 156, "injuries_2023": 151, "fatalities_2024": 27, "fatalities_2023": 21, "population": 102881, "casualties_per_100000": 178.0, "pedestrian_pct": 23, "rollover_pct": 39, "lat": -22.45, "lng": 18.97}, "Omusati": {"crashes_2024": 127, "crashes_2023": 129, "injuries_2024": 208, "injuries_2023": 259, "fatalities_2024": 25, "fatalities_2023": 21, "population": 316671, "casualties_per_100000": 74.0, "pedestrian_pct": 24, "rollover_pct": 30, "lat": -17.5, "lng": 15.0}, "Oshana": {"crashes_2024": 311, "crashes_2023": 298, "injuries_2024": 496, "injuries_2023": 519, "fatalities_2024": 42, "fatalities_2023": 27, "population": 230801, "casualties_per_100000": 233.0, "pedestrian_pct": 32, "rollover_pct": 13, "lat": -17.788, "lng": 15.696}, "Oshikoto": {"crashes_2024": 216, "crashes_2023": 204, "injuries_2024": 428, "injuries_2023": 466, "fatalities_2024": 54, "fatalities_2023": 51, "population": 257302, "casualties_per_100000": 187.0, "pedestrian_pct": 27, "rollover_pct": 23, "lat": -19.25, "lng": 17.72}, "Otjozondjupa": {"crashes_2024": 271, "crashes_2023": 264, "injuries_2024": 640, "injuries_2023": 519, "fatalities_2024": 53, "fatalities_2023": 55, "population": 220811, "casualties_per_100000": 314.0, "pedestrian_pct": 15, "rollover_pct": 38, "lat": -20.461, "lng": 16.6512}, "Zambezi": {"crashes_2024": 90, "crashes_2023": 85, "injuries_2024": 149, "injuries_2023": 172, "fatalities_2024": 15, "fatalities_2023": 27, "population": 142373, "casualties_per_100000": 115.0, "pedestrian_pct": 34, "rollover_pct": 20, "lat": -17.5, "lng": 24.27}};
+
+const TIME_OF_DAY = [{"label": "00:00-01:59", "count": 174}, {"label": "02:00-03:59", "count": 94}, {"label": "04:00-05:59", "count": 94}, {"label": "06:00-07:59", "count": 277}, {"label": "08:00-09:59", "count": 181}, {"label": "10:00-11:59", "count": 210}, {"label": "12:00-13:59", "count": 286}, {"label": "14:00-15:59", "count": 349}, {"label": "16:00-17:59", "count": 409}, {"label": "18:00-19:59", "count": 468}, {"label": "20:00-21:59", "count": 392}, {"label": "22:00-23:59", "count": 223}];
+
+// The one worked example from this conversation: an Informanté (Facebook)
+// report of a collision ~120km from Otjiwarongo on the B1, geocoded by
+// linear interpolation along the Otjiwarongo–Okahandja route.
+const INCIDENTS = [
+  {
+    lat: -21.527, lng: 16.831,
+    road: "B1, Okahandja–Otjiwarongo road",
+    location_description: "≈120km from Otjiwarongo (no towns between Otjiwarongo and Okahandja on this stretch)",
+    date_occurred: "reported morning of post date",
+    accident_type: "Collision",
+    vehicles_involved: ["Bakkie", "16-seater bus"],
+    fatalities: 4,
+    injuries_description: "Several others injured (count not specified)",
+    source_name: "Informanté (Facebook)",
+    entry_type: "historical — news-extracted",
+    needs_review: true,
+    confidence_notes: "Location is distance-along-road, not a fixed point; coordinate is interpolated, not geocoded from an address."
+  }
+];
+
+// National 2024 vs 2023 totals, derived from REGIONS
+function nationalTotal(metric, year){
+  let sum = 0;
+  for(const r in REGIONS) sum += REGIONS[r][metric + "_" + year] || 0;
+  return sum;
+}
+
+// -----------------------------------------------------------------
+// Map
+// -----------------------------------------------------------------
+const map = L.map('map', { zoomControl:true, attributionControl:true })
+  .setView([-22.5, 17.3], 6);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+let regionLayer = L.layerGroup().addTo(map);
+let incidentLayer = L.layerGroup().addTo(map);
+
+// -----------------------------------------------------------------
+// Color / radius scale for region markers
+// -----------------------------------------------------------------
+const SEV_STEPS = ['#3a2020','#6b2b2b','#a3342f','#d0432f','#e66767'];
+
+function severityColor(t){ // t in [0,1]
+  const idx = Math.min(SEV_STEPS.length-1, Math.floor(t * SEV_STEPS.length));
+  return SEV_STEPS[idx];
+}
+
+function currentMetric(){ return document.getElementById('metricSelect').value; }
+function currentYear(){ return document.getElementById('yearSeg').querySelector('.active').dataset.year; }
+
+function metricValue(region, metric, year){
+  if(metric === 'casualties_per_100000') return REGIONS[region].casualties_per_100000 || 0;
+  return REGIONS[region][metric + '_' + year] || 0;
+}
+
+function renderRegions(){
+  regionLayer.clearLayers();
+  const metric = currentMetric();
+  const year = currentYear();
+  const values = Object.keys(REGIONS).map(r => metricValue(r, metric, year));
+  const min = Math.min(...values), max = Math.max(...values);
+
+  document.getElementById('legMin').textContent = Math.round(min).toLocaleString();
+  document.getElementById('legMax').textContent = Math.round(max).toLocaleString();
+
+  for(const name in REGIONS){
+    const r = REGIONS[name];
+    const val = metricValue(name, metric, year);
+    const t = max > min ? (val - min) / (max - min) : 0.5;
+    const radius = 9 + t * 24;
+    const color = severityColor(t);
+
+    const marker = L.circleMarker([r.lat, r.lng], {
+      radius, color: 'rgba(255,255,255,0.35)', weight: 1.2,
+      fillColor: color, fillOpacity: 0.78
+    });
+
+    const crashesY = r['crashes_' + year], fatalY = r['fatalities_' + year], injY = r['injuries_' + year];
+    marker.bindPopup(
+      '<b>' + name + '</b>' +
+      '<div class="popup-row"><span class="k">Crashes (' + year + ')</span><span class="v">' + crashesY.toLocaleString() + '</span></div>' +
+      '<div class="popup-row"><span class="k">Fatalities (' + year + ')</span><span class="v">' + fatalY.toLocaleString() + '</span></div>' +
+      '<div class="popup-row"><span class="k">Injuries (' + year + ')</span><span class="v">' + injY.toLocaleString() + '</span></div>' +
+      (r.casualties_per_100000 ? '<div class="popup-row"><span class="k">Casualties / 100k (2024)</span><span class="v">' + r.casualties_per_100000 + '</span></div>' : '') +
+      '<div class="popup-row"><span class="k">Pedestrian share</span><span class="v">' + r.pedestrian_pct + '%</span></div>' +
+      '<div class="popup-row"><span class="k">Rollover share</span><span class="v">' + r.rollover_pct + '%</span></div>' +
+      '<div class="popup-foot">Regional aggregate — marker sits at an approximate centroid, not a crash location.</div>'
+    );
+    marker.addTo(regionLayer);
+  }
+}
+
+function renderIncidents(){
+  incidentLayer.clearLayers();
+  for(const inc of INCIDENTS){
+    const marker = L.circleMarker([inc.lat, inc.lng], {
+      radius: 8, color: '#fff', weight: 2,
+      fillColor: '#3987e5', fillOpacity: 0.95
+    });
+    marker.bindPopup(
+      '<b>' + inc.accident_type + ' — ' + inc.road + '</b>' +
+      '<div class="popup-row"><span class="k">Location</span><span class="v" style="text-align:right;max-width:170px;">' + inc.location_description + '</span></div>' +
+      '<div class="popup-row"><span class="k">Vehicles</span><span class="v">' + inc.vehicles_involved.join(', ') + '</span></div>' +
+      '<div class="popup-row"><span class="k">Fatalities</span><span class="v">' + inc.fatalities + '</span></div>' +
+      '<div class="popup-row"><span class="k">Injuries</span><span class="v" style="text-align:right;max-width:170px;">' + inc.injuries_description + '</span></div>' +
+      '<div class="popup-row"><span class="k">Source</span><span class="v">' + inc.source_name + '</span></div>' +
+      '<div class="popup-foot">' + inc.entry_type + (inc.needs_review ? ' · flagged for review — ' + inc.confidence_notes : '') + '</div>'
+    );
+    marker.addTo(incidentLayer);
+  }
+}
+
+// -----------------------------------------------------------------
+// KPI tiles
+// -----------------------------------------------------------------
+function fmtDelta(cur, prev){
+  if(!prev) return {text:'—', cls:'flat'};
+  const diff = cur - prev;
+  const pct = ((diff/prev)*100).toFixed(1);
+  if(diff === 0) return {text:'No change vs prior year', cls:'flat'};
+  const cls = diff > 0 ? 'up' : 'down';
+  const sign = diff > 0 ? '+' : '';
+  return {text: sign + pct + '% vs ' + (cur===nationalTotal('crashes',currentYear())?'':'') , cls};
+}
+
+function renderKPIs(){
+  const year = currentYear();
+  const prevYear = year === '2024' ? '2023' : null;
+  document.getElementById('kpiYear').textContent = year;
+
+  const crashes = nationalTotal('crashes', year);
+  const fatalities = nationalTotal('fatalities', year);
+  const injuries = nationalTotal('injuries', year);
+
+  document.getElementById('kpiCrashes').textContent = crashes.toLocaleString();
+  document.getElementById('kpiFatalities').textContent = fatalities.toLocaleString();
+  document.getElementById('kpiInjuries').textContent = injuries.toLocaleString();
+  document.getElementById('kpiRatio').textContent = (crashes/fatalities).toFixed(1);
+
+  if(prevYear){
+    const pc = nationalTotal('crashes', prevYear);
+    const pf = nationalTotal('fatalities', prevYear);
+    const pi = nationalTotal('injuries', prevYear);
+    setDelta('kpiCrashesDelta', crashes, pc);
+    setDelta('kpiFatalitiesDelta', fatalities, pf);
+    setDelta('kpiInjuriesDelta', injuries, pi);
+  } else {
+    document.getElementById('kpiCrashesDelta').textContent = '';
+    document.getElementById('kpiFatalitiesDelta').textContent = '';
+    document.getElementById('kpiInjuriesDelta').textContent = '';
+  }
+}
+
+function setDelta(id, cur, prev){
+  const el = document.getElementById(id);
+  const diff = cur - prev;
+  const pct = prev ? ((diff/prev)*100).toFixed(1) : '0.0';
+  el.className = 'kpi-delta ' + (diff > 0 ? 'up' : diff < 0 ? 'down' : 'flat');
+  const sign = diff > 0 ? '+' : '';
+  el.textContent = sign + pct + '% vs 2023';
+}
+
+// -----------------------------------------------------------------
+// Time-of-day bar chart (sequential, single series — blue)
+// -----------------------------------------------------------------
+function renderChart(){
+  const w = 320, h = 118, padL = 2, padR = 2, padB = 16, padT = 4;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+  const max = Math.max(...TIME_OF_DAY.map(d => d.count));
+  const n = TIME_OF_DAY.length;
+  const gap = 3;
+  const barW = (plotW - gap*(n-1)) / n;
+  const peakIdx = TIME_OF_DAY.findIndex(d => d.count === max);
+
+  let bars = '';
+  TIME_OF_DAY.forEach((d, i) => {
+    const bh = (d.count / max) * plotH;
+    const x = padL + i * (barW + gap);
+    const y = padT + (plotH - bh);
+    const cls = i === peakIdx ? 'bar peak' : 'bar';
+    bars += '<rect class="' + cls + '" x="' + x.toFixed(1) + '" y="' + y.toFixed(1) +
+      '" width="' + barW.toFixed(1) + '" height="' + bh.toFixed(1) + '" rx="2">' +
+      '<title>' + d.label + ': ' + d.count + ' crashes</title></rect>';
+  });
+
+  // sparse x labels: every 3rd
+  let labels = '';
+  TIME_OF_DAY.forEach((d, i) => {
+    if(i % 3 !== 0) return;
+    const x = padL + i * (barW + gap) + barW/2;
+    labels += '<text x="' + x.toFixed(1) + '" y="' + (h-4) + '" text-anchor="middle">' + d.label.slice(0,5) + '</text>';
+  });
+
+  document.getElementById('chartWrap').innerHTML =
+    '<svg class="bars" viewBox="0 0 ' + w + ' ' + h + '" width="100%" height="118" role="img" aria-label="Crashes by time of day, 2024">' +
+    bars + labels + '</svg>';
+}
+
+// -----------------------------------------------------------------
+// Wiring
+// -----------------------------------------------------------------
+function rerenderAll(){
+  renderRegions();
+  renderKPIs();
+}
+
+document.getElementById('yearSeg').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  document.querySelectorAll('#yearSeg button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  rerenderAll();
+});
+
+document.getElementById('metricSelect').addEventListener('change', renderRegions);
+
+function wireToggle(id, layer){
+  const btn = document.getElementById(id);
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('on');
+    if(btn.classList.contains('on')) map.addLayer(layer);
+    else map.removeLayer(layer);
+  });
+}
+wireToggle('toggleRegions', regionLayer);
+wireToggle('toggleIncidents', incidentLayer);
+
+const sidebar = document.getElementById('sidebar');
+document.getElementById('mobileToggle').addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+});
+
+// init
+renderRegions();
+renderIncidents();
+renderKPIs();
+renderChart();
+
+})();
+</script>

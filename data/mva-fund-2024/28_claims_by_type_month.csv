@@ -1,0 +1,14 @@
+month,injury_grant,funeral_grant,loss_of_support,loss_of_income,medical_cost_reimbursement,other_reimbursement,total_claims
+Jan,154,51,10,0,1,0,216
+Feb,123,25,10,5,5,0,168
+Mar,124,38,7,12,1,0,182
+Apr,153,41,7,3,2,0,206
+May,180,27,10,4,2,1,224
+Jun,101,20,8,0,3,0,132
+Jul,213,50,8,6,1,2,280
+Aug,153,31,3,5,2,0,194
+Sep,173,28,2,6,1,0,210
+Oct,208,39,9,8,3,0,267
+Nov,164,37,8,7,3,0,219
+Dec,125,49,4,2,4,2,186
+Total,1871,436,86,58,28,5,2484

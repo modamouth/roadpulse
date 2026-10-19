@@ -1,0 +1,29 @@
+[
+  {
+    "occurred_at": null,
+    "occurred_at_precision": "relative",
+    "road": "B1, Okahandja–Otjiwarongo road",
+    "location_description": "approximately 120km from Otjiwarongo (no towns between Otjiwarongo and Okahandja on this stretch, per user confirmation)",
+    "lat": -21.527,
+    "lng": 16.831,
+    "region": "Otjozondjupa",
+    "accident_type": "collision",
+    "vehicles_involved": ["bakkie", "16-seater bus"],
+    "fatalities": 4,
+    "injuries_count": null,
+    "injuries_description": "several others injured (count not specified in source)",
+    "source_name": "Informanté (Facebook)",
+    "source_url": null,
+    "entry_type": "historical_extracted",
+    "verified": false,
+    "needs_review": true,
+    "confidence_notes": [
+      "injuries_count is vague ('several') - needs manual estimate or leave null",
+      "occurred_at inferred from post age + 'this morning', not an explicit date - verify against post timestamp",
+      "location is distance-along-road, not a fixed point - coordinate derived by straight-line interpolation between Otjiwarongo and Okahandja, not real road geometry (see pipelines/geocoding/README.md)",
+      "no lat/lng derivable directly from source text"
+    ],
+    "geocode_method": "linear_reference",
+    "is_synthetic": false
+  }
+]

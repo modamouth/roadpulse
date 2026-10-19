@@ -1,0 +1,3711 @@
+{
+  "01_quick_facts.csv": [
+    {
+      "year": "2020",
+      "crashes": "2816",
+      "fatalities": "467",
+      "injuries": "5069",
+      "casualties": "5536",
+      "mva_fund_claims": "2426",
+      "vehicle_population": "403955",
+      "namibia_population": "2504498",
+      "fatalities_per_10000_vehicles": "11.6",
+      "fatalities_per_100000_persons": "18.6",
+      "injuries_per_10000_vehicles": "125.5",
+      "injuries_per_100000_persons": "202.4",
+      "casualties_per_10000_vehicles": "137",
+      "casualties_per_100000_persons": "221",
+      "fatalities_per_crash": "0.2",
+      "injuries_per_crash": "1.8",
+      "casualties_per_crash": "2",
+      "crashes_for_1_fatality": "6"
+    },
+    {
+      "year": "2021",
+      "crashes": "3111",
+      "fatalities": "553",
+      "injuries": "5446",
+      "casualties": "5999",
+      "mva_fund_claims": "2741",
+      "vehicle_population": "401715",
+      "namibia_population": "2550226",
+      "fatalities_per_10000_vehicles": "13.8",
+      "fatalities_per_100000_persons": "21.7",
+      "injuries_per_10000_vehicles": "135.6",
+      "injuries_per_100000_persons": "213.5",
+      "casualties_per_10000_vehicles": "149.3",
+      "casualties_per_100000_persons": "235.2",
+      "fatalities_per_crash": "0.2",
+      "injuries_per_crash": "1.8",
+      "casualties_per_crash": "1.9",
+      "crashes_for_1_fatality": "5.6"
+    },
+    {
+      "year": "2022",
+      "crashes": "3122",
+      "fatalities": "471",
+      "injuries": "5344",
+      "casualties": "5815",
+      "mva_fund_claims": "2582",
+      "vehicle_population": "403839",
+      "namibia_population": "2596037",
+      "fatalities_per_10000_vehicles": "11.7",
+      "fatalities_per_100000_persons": "18.1",
+      "injuries_per_10000_vehicles": "132.3",
+      "injuries_per_100000_persons": "205.9",
+      "casualties_per_10000_vehicles": "144.0",
+      "casualties_per_100000_persons": "224.0",
+      "fatalities_per_crash": "0.2",
+      "injuries_per_crash": "1.7",
+      "casualties_per_crash": "1.9",
+      "crashes_for_1_fatality": "6.6"
+    },
+    {
+      "year": "2023",
+      "crashes": "3067",
+      "fatalities": "428",
+      "injuries": "5433",
+      "casualties": "5861",
+      "mva_fund_claims": "2337",
+      "vehicle_population": "408705",
+      "namibia_population": "3022401",
+      "fatalities_per_10000_vehicles": "10.5",
+      "fatalities_per_100000_persons": "14.2",
+      "injuries_per_10000_vehicles": "129.7",
+      "injuries_per_100000_persons": "179.8",
+      "casualties_per_10000_vehicles": "139.9",
+      "casualties_per_100000_persons": "193.9",
+      "fatalities_per_crash": "0.1",
+      "injuries_per_crash": "1.8",
+      "casualties_per_crash": "1.9",
+      "crashes_for_1_fatality": "7.2"
+    },
+    {
+      "year": "2024",
+      "crashes": "3194",
+      "fatalities": "446",
+      "injuries": "5450",
+      "casualties": "5896",
+      "mva_fund_claims": "2484",
+      "vehicle_population": "418836",
+      "namibia_population": "3022401",
+      "fatalities_per_10000_vehicles": "10.6",
+      "fatalities_per_100000_persons": "14.8",
+      "injuries_per_10000_vehicles": "130.1",
+      "injuries_per_100000_persons": "180.3",
+      "casualties_per_10000_vehicles": "140.8",
+      "casualties_per_100000_persons": "195.1",
+      "fatalities_per_crash": "0.1",
+      "injuries_per_crash": "1.7",
+      "casualties_per_crash": "1.8",
+      "crashes_for_1_fatality": "7.2"
+    }
+  ],
+  "02_population_casualties_by_region_2024.csv": [
+    {
+      "region": "//Kharas",
+      "population": "109893",
+      "casualties": "161",
+      "casualties_per_100000": "147"
+    },
+    {
+      "region": "Erongo",
+      "population": "240206",
+      "casualties": "683",
+      "casualties_per_100000": "284"
+    },
+    {
+      "region": "Hardap",
+      "population": "106680",
+      "casualties": "182",
+      "casualties_per_100000": "171"
+    },
+    {
+      "region": "Kavango East",
+      "population": "218421",
+      "casualties": "328",
+      "casualties_per_100000": "150"
+    },
+    {
+      "region": "Kavango West",
+      "population": "123266",
+      "casualties": "96",
+      "casualties_per_100000": "78"
+    },
+    {
+      "region": "Khomas",
+      "population": "494605",
+      "casualties": "1678",
+      "casualties_per_100000": "339"
+    },
+    {
+      "region": "Kunene",
+      "population": "120762",
+      "casualties": "150",
+      "casualties_per_100000": "124"
+    },
+    {
+      "region": "Ohangwena",
+      "population": "337729",
+      "casualties": "322",
+      "casualties_per_100000": "95"
+    },
+    {
+      "region": "Omaheke",
+      "population": "102881",
+      "casualties": "183",
+      "casualties_per_100000": "178"
+    },
+    {
+      "region": "Omusati",
+      "population": "316671",
+      "casualties": "233",
+      "casualties_per_100000": "74"
+    },
+    {
+      "region": "Oshana",
+      "population": "230801",
+      "casualties": "538",
+      "casualties_per_100000": "233"
+    },
+    {
+      "region": "Oshikoto",
+      "population": "257302",
+      "casualties": "482",
+      "casualties_per_100000": "187"
+    },
+    {
+      "region": "Otjozondjupa",
+      "population": "220811",
+      "casualties": "693",
+      "casualties_per_100000": "314"
+    },
+    {
+      "region": "Zambezi",
+      "population": "142373",
+      "casualties": "164",
+      "casualties_per_100000": "115"
+    },
+    {
+      "region": "Grand Total",
+      "population": "3022401",
+      "casualties": "5893",
+      "casualties_per_100000": "195"
+    }
+  ],
+  "03_crashes_per_month.csv": [
+    {
+      "month": "Jan",
+      "count_2024": "190",
+      "pct_2024": "6%",
+      "count_2023": "214",
+      "pct_2023": "7%",
+      "count_2022": "224",
+      "pct_2022": "7%",
+      "count_2021": "233",
+      "pct_2021": "7%",
+      "count_2020": "220",
+      "pct_2020": "8%"
+    },
+    {
+      "month": "Feb",
+      "count_2024": "223",
+      "pct_2024": "7%",
+      "count_2023": "214",
+      "pct_2023": "7%",
+      "count_2022": "232",
+      "pct_2022": "7%",
+      "count_2021": "227",
+      "pct_2021": "7%",
+      "count_2020": "256",
+      "pct_2020": "9%"
+    },
+    {
+      "month": "Mar",
+      "count_2024": "269",
+      "pct_2024": "8%",
+      "count_2023": "246",
+      "pct_2023": "8%",
+      "count_2022": "245",
+      "pct_2022": "8%",
+      "count_2021": "293",
+      "pct_2021": "9%",
+      "count_2020": "227",
+      "pct_2020": "8%"
+    },
+    {
+      "month": "Apr",
+      "count_2024": "265",
+      "pct_2024": "8%",
+      "count_2023": "281",
+      "pct_2023": "9%",
+      "count_2022": "286",
+      "pct_2022": "9%",
+      "count_2021": "265",
+      "pct_2021": "9%",
+      "count_2020": "83",
+      "pct_2020": "3%"
+    },
+    {
+      "month": "May",
+      "count_2024": "240",
+      "pct_2024": "8%",
+      "count_2023": "234",
+      "pct_2023": "8%",
+      "count_2022": "264",
+      "pct_2022": "8%",
+      "count_2021": "256",
+      "pct_2021": "8%",
+      "count_2020": "166",
+      "pct_2020": "6%"
+    },
+    {
+      "month": "Jun",
+      "count_2024": "274",
+      "pct_2024": "9%",
+      "count_2023": "239",
+      "pct_2023": "8%",
+      "count_2022": "282",
+      "pct_2022": "9%",
+      "count_2021": "209",
+      "pct_2021": "7%",
+      "count_2020": "240",
+      "pct_2020": "9%"
+    },
+    {
+      "month": "Jul",
+      "count_2024": "269",
+      "pct_2024": "8%",
+      "count_2023": "279",
+      "pct_2023": "9%",
+      "count_2022": "289",
+      "pct_2022": "9%",
+      "count_2021": "197",
+      "pct_2021": "6%",
+      "count_2020": "275",
+      "pct_2020": "10%"
+    },
+    {
+      "month": "Aug",
+      "count_2024": "306",
+      "pct_2024": "10%",
+      "count_2023": "273",
+      "pct_2023": "9%",
+      "count_2022": "274",
+      "pct_2022": "9%",
+      "count_2021": "300",
+      "pct_2021": "10%",
+      "count_2020": "237",
+      "pct_2020": "8%"
+    },
+    {
+      "month": "Sep",
+      "count_2024": "277",
+      "pct_2024": "9%",
+      "count_2023": "264",
+      "pct_2023": "9%",
+      "count_2022": "238",
+      "pct_2022": "8%",
+      "count_2021": "282",
+      "pct_2021": "9%",
+      "count_2020": "249",
+      "pct_2020": "9%"
+    },
+    {
+      "month": "Oct",
+      "count_2024": "304",
+      "pct_2024": "10%",
+      "count_2023": "264",
+      "pct_2023": "9%",
+      "count_2022": "306",
+      "pct_2022": "10%",
+      "count_2021": "297",
+      "pct_2021": "10%",
+      "count_2020": "304",
+      "pct_2020": "11%"
+    },
+    {
+      "month": "Nov",
+      "count_2024": "274",
+      "pct_2024": "9%",
+      "count_2023": "249",
+      "pct_2023": "8%",
+      "count_2022": "211",
+      "pct_2022": "7%",
+      "count_2021": "266",
+      "pct_2021": "9%",
+      "count_2020": "256",
+      "pct_2020": "9%"
+    },
+    {
+      "month": "Dec",
+      "count_2024": "303",
+      "pct_2024": "9%",
+      "count_2023": "310",
+      "pct_2023": "10%",
+      "count_2022": "271",
+      "pct_2022": "9%",
+      "count_2021": "286",
+      "pct_2021": "9%",
+      "count_2020": "303",
+      "pct_2020": "11%"
+    },
+    {
+      "month": "Total",
+      "count_2024": "3194",
+      "pct_2024": "100%",
+      "count_2023": "3067",
+      "pct_2023": "100%",
+      "count_2022": "3122",
+      "pct_2022": "100%",
+      "count_2021": "3111",
+      "pct_2021": "100%",
+      "count_2020": "2816",
+      "pct_2020": "100%"
+    }
+  ],
+  "04_crashes_per_region.csv": [
+    {
+      "region": "//Karas",
+      "crashes_2024": "84",
+      "crashes_2023": "97"
+    },
+    {
+      "region": "Erongo",
+      "crashes_2024": "385",
+      "crashes_2023": "381"
+    },
+    {
+      "region": "Hardap",
+      "crashes_2024": "85",
+      "crashes_2023": "112"
+    },
+    {
+      "region": "Kavango East",
+      "crashes_2024": "163",
+      "crashes_2023": "103"
+    },
+    {
+      "region": "Kavango West",
+      "crashes_2024": "40",
+      "crashes_2023": "55"
+    },
+    {
+      "region": "Khomas",
+      "crashes_2024": "1126",
+      "crashes_2023": "1074"
+    },
+    {
+      "region": "Kunene",
+      "crashes_2024": "55",
+      "crashes_2023": "64"
+    },
+    {
+      "region": "Ohangwena",
+      "crashes_2024": "170",
+      "crashes_2023": "117"
+    },
+    {
+      "region": "Omaheke",
+      "crashes_2024": "71",
+      "crashes_2023": "84"
+    },
+    {
+      "region": "Omusati",
+      "crashes_2024": "127",
+      "crashes_2023": "129"
+    },
+    {
+      "region": "Oshana",
+      "crashes_2024": "311",
+      "crashes_2023": "298"
+    },
+    {
+      "region": "Oshikoto",
+      "crashes_2024": "216",
+      "crashes_2023": "204"
+    },
+    {
+      "region": "Otjozondjupa",
+      "crashes_2024": "271",
+      "crashes_2023": "264"
+    },
+    {
+      "region": "Zambezi",
+      "crashes_2024": "90",
+      "crashes_2023": "85"
+    }
+  ],
+  "05_crash_types.csv": [
+    {
+      "crash_type": "Collisions",
+      "count_2024": "918",
+      "pct_2024": "29%",
+      "count_2023": "818",
+      "pct_2023": "27%"
+    },
+    {
+      "crash_type": "Cyclists",
+      "count_2024": "92",
+      "pct_2024": "3%",
+      "count_2023": "83",
+      "pct_2023": "3%"
+    },
+    {
+      "crash_type": "Fell/Jumped from moving vehicle",
+      "count_2024": "130",
+      "pct_2024": "4%",
+      "count_2023": "125",
+      "pct_2023": "4%"
+    },
+    {
+      "crash_type": "Other/Unknowns",
+      "count_2024": "94",
+      "pct_2024": "3%",
+      "count_2023": "62",
+      "pct_2023": "2%"
+    },
+    {
+      "crash_type": "Pedestrians",
+      "count_2024": "1036",
+      "pct_2024": "32%",
+      "count_2023": "1002",
+      "pct_2023": "33%"
+    },
+    {
+      "crash_type": "Rollovers",
+      "count_2024": "594",
+      "pct_2024": "19%",
+      "count_2023": "666",
+      "pct_2023": "22%"
+    },
+    {
+      "crash_type": "With Animals",
+      "count_2024": "123",
+      "pct_2024": "4%",
+      "count_2023": "105",
+      "pct_2023": "3%"
+    },
+    {
+      "crash_type": "With fixed objects",
+      "count_2024": "207",
+      "pct_2024": "6%",
+      "count_2023": "206",
+      "pct_2023": "7%"
+    },
+    {
+      "crash_type": "Total",
+      "count_2024": "3194",
+      "pct_2024": "100%",
+      "count_2023": "3067",
+      "pct_2023": "100%"
+    }
+  ],
+  "06_crash_types_by_region.csv": [
+    {
+      "region": "//Karas",
+      "collisions": "13",
+      "cyclists": "1",
+      "fell_jumped": "2",
+      "other_unknown": "4",
+      "pedestrians": "24",
+      "rollovers": "30",
+      "with_animals": "4",
+      "with_fixed_objects": "6",
+      "total": "84"
+    },
+    {
+      "region": "Erongo",
+      "collisions": "96",
+      "cyclists": "20",
+      "fell_jumped": "20",
+      "other_unknown": "10",
+      "pedestrians": "113",
+      "rollovers": "91",
+      "with_animals": "4",
+      "with_fixed_objects": "31",
+      "total": "385"
+    },
+    {
+      "region": "Hardap",
+      "collisions": "13",
+      "cyclists": "1",
+      "fell_jumped": "3",
+      "other_unknown": "6",
+      "pedestrians": "20",
+      "rollovers": "37",
+      "with_animals": "4",
+      "with_fixed_objects": "1",
+      "total": "85"
+    },
+    {
+      "region": "Kavango East",
+      "collisions": "30",
+      "cyclists": "4",
+      "fell_jumped": "3",
+      "other_unknown": "2",
+      "pedestrians": "74",
+      "rollovers": "26",
+      "with_animals": "17",
+      "with_fixed_objects": "7",
+      "total": "163"
+    },
+    {
+      "region": "Kavango West",
+      "collisions": "5",
+      "cyclists": "0",
+      "fell_jumped": "1",
+      "other_unknown": "0",
+      "pedestrians": "13",
+      "rollovers": "9",
+      "with_animals": "9",
+      "with_fixed_objects": "3",
+      "total": "40"
+    },
+    {
+      "region": "Khomas",
+      "collisions": "459",
+      "cyclists": "35",
+      "fell_jumped": "13",
+      "other_unknown": "29",
+      "pedestrians": "439",
+      "rollovers": "71",
+      "with_animals": "8",
+      "with_fixed_objects": "72",
+      "total": "1126"
+    },
+    {
+      "region": "Kunene",
+      "collisions": "8",
+      "cyclists": "1",
+      "fell_jumped": "3",
+      "other_unknown": "3",
+      "pedestrians": "16",
+      "rollovers": "16",
+      "with_animals": "4",
+      "with_fixed_objects": "4",
+      "total": "55"
+    },
+    {
+      "region": "Ohangwena",
+      "collisions": "33",
+      "cyclists": "1",
+      "fell_jumped": "15",
+      "other_unknown": "5",
+      "pedestrians": "62",
+      "rollovers": "37",
+      "with_animals": "5",
+      "with_fixed_objects": "12",
+      "total": "170"
+    },
+    {
+      "region": "Omaheke",
+      "collisions": "9",
+      "cyclists": "2",
+      "fell_jumped": "2",
+      "other_unknown": "2",
+      "pedestrians": "16",
+      "rollovers": "28",
+      "with_animals": "10",
+      "with_fixed_objects": "2",
+      "total": "71"
+    },
+    {
+      "region": "Omusati",
+      "collisions": "17",
+      "cyclists": "5",
+      "fell_jumped": "12",
+      "other_unknown": "8",
+      "pedestrians": "30",
+      "rollovers": "38",
+      "with_animals": "7",
+      "with_fixed_objects": "10",
+      "total": "127"
+    },
+    {
+      "region": "Oshana",
+      "collisions": "126",
+      "cyclists": "7",
+      "fell_jumped": "10",
+      "other_unknown": "5",
+      "pedestrians": "98",
+      "rollovers": "40",
+      "with_animals": "6",
+      "with_fixed_objects": "19",
+      "total": "311"
+    },
+    {
+      "region": "Oshikoto",
+      "collisions": "41",
+      "cyclists": "3",
+      "fell_jumped": "23",
+      "other_unknown": "4",
+      "pedestrians": "58",
+      "rollovers": "50",
+      "with_animals": "25",
+      "with_fixed_objects": "12",
+      "total": "216"
+    },
+    {
+      "region": "Otjozondjupa",
+      "collisions": "57",
+      "cyclists": "5",
+      "fell_jumped": "16",
+      "other_unknown": "12",
+      "pedestrians": "42",
+      "rollovers": "103",
+      "with_animals": "14",
+      "with_fixed_objects": "22",
+      "total": "271"
+    },
+    {
+      "region": "Zambezi",
+      "collisions": "11",
+      "cyclists": "7",
+      "fell_jumped": "7",
+      "other_unknown": "4",
+      "pedestrians": "31",
+      "rollovers": "18",
+      "with_animals": "6",
+      "with_fixed_objects": "6",
+      "total": "90"
+    },
+    {
+      "region": "Total",
+      "collisions": "918",
+      "cyclists": "92",
+      "fell_jumped": "130",
+      "other_unknown": "94",
+      "pedestrians": "1036",
+      "rollovers": "594",
+      "with_animals": "123",
+      "with_fixed_objects": "207",
+      "total": "3194"
+    }
+  ],
+  "07_crashes_by_day_of_week_region.csv": [
+    {
+      "region": "//Karas",
+      "sunday": "20",
+      "monday": "12",
+      "tuesday": "7",
+      "wednesday": "8",
+      "thursday": "7",
+      "friday": "15",
+      "saturday": "15",
+      "total": "84"
+    },
+    {
+      "region": "Erongo",
+      "sunday": "52",
+      "monday": "52",
+      "tuesday": "33",
+      "wednesday": "45",
+      "thursday": "51",
+      "friday": "82",
+      "saturday": "70",
+      "total": "385"
+    },
+    {
+      "region": "Hardap",
+      "sunday": "13",
+      "monday": "14",
+      "tuesday": "10",
+      "wednesday": "9",
+      "thursday": "8",
+      "friday": "14",
+      "saturday": "17",
+      "total": "85"
+    },
+    {
+      "region": "Kavango East",
+      "sunday": "20",
+      "monday": "23",
+      "tuesday": "22",
+      "wednesday": "23",
+      "thursday": "26",
+      "friday": "19",
+      "saturday": "30",
+      "total": "163"
+    },
+    {
+      "region": "Kavango West",
+      "sunday": "6",
+      "monday": "3",
+      "tuesday": "2",
+      "wednesday": "8",
+      "thursday": "4",
+      "friday": "8",
+      "saturday": "9",
+      "total": "40"
+    },
+    {
+      "region": "Khomas",
+      "sunday": "164",
+      "monday": "170",
+      "tuesday": "147",
+      "wednesday": "152",
+      "thursday": "132",
+      "friday": "182",
+      "saturday": "179",
+      "total": "1126"
+    },
+    {
+      "region": "Kunene",
+      "sunday": "8",
+      "monday": "3",
+      "tuesday": "5",
+      "wednesday": "8",
+      "thursday": "4",
+      "friday": "15",
+      "saturday": "12",
+      "total": "55"
+    },
+    {
+      "region": "Ohangwena",
+      "sunday": "33",
+      "monday": "24",
+      "tuesday": "13",
+      "wednesday": "20",
+      "thursday": "23",
+      "friday": "29",
+      "saturday": "28",
+      "total": "170"
+    },
+    {
+      "region": "Omaheke",
+      "sunday": "13",
+      "monday": "7",
+      "tuesday": "4",
+      "wednesday": "5",
+      "thursday": "8",
+      "friday": "15",
+      "saturday": "19",
+      "total": "71"
+    },
+    {
+      "region": "Omusati",
+      "sunday": "15",
+      "monday": "18",
+      "tuesday": "11",
+      "wednesday": "20",
+      "thursday": "15",
+      "friday": "25",
+      "saturday": "23",
+      "total": "127"
+    },
+    {
+      "region": "Oshana",
+      "sunday": "52",
+      "monday": "51",
+      "tuesday": "29",
+      "wednesday": "34",
+      "thursday": "42",
+      "friday": "55",
+      "saturday": "48",
+      "total": "311"
+    },
+    {
+      "region": "Oshikoto",
+      "sunday": "38",
+      "monday": "26",
+      "tuesday": "32",
+      "wednesday": "27",
+      "thursday": "24",
+      "friday": "36",
+      "saturday": "33",
+      "total": "216"
+    },
+    {
+      "region": "Otjozondjupa",
+      "sunday": "55",
+      "monday": "30",
+      "tuesday": "34",
+      "wednesday": "28",
+      "thursday": "40",
+      "friday": "48",
+      "saturday": "36",
+      "total": "271"
+    },
+    {
+      "region": "Zambezi",
+      "sunday": "12",
+      "monday": "9",
+      "tuesday": "15",
+      "wednesday": "9",
+      "thursday": "13",
+      "friday": "17",
+      "saturday": "15",
+      "total": "90"
+    },
+    {
+      "region": "Total",
+      "sunday": "501",
+      "monday": "442",
+      "tuesday": "364",
+      "wednesday": "396",
+      "thursday": "397",
+      "friday": "560",
+      "saturday": "534",
+      "total": "3194"
+    }
+  ],
+  "08_crashes_by_time_of_day.csv": [
+    {
+      "time_period": "00:00-01:59",
+      "count_2024": "174",
+      "count_2023": "187"
+    },
+    {
+      "time_period": "02:00-03:59",
+      "count_2024": "94",
+      "count_2023": "177"
+    },
+    {
+      "time_period": "04:00-05:59",
+      "count_2024": "94",
+      "count_2023": "83"
+    },
+    {
+      "time_period": "06:00-07:59",
+      "count_2024": "277",
+      "count_2023": "217"
+    },
+    {
+      "time_period": "08:00-09:59",
+      "count_2024": "181",
+      "count_2023": "177"
+    },
+    {
+      "time_period": "10:00-11:59",
+      "count_2024": "210",
+      "count_2023": "230"
+    },
+    {
+      "time_period": "12:00-13:59",
+      "count_2024": "286",
+      "count_2023": "282"
+    },
+    {
+      "time_period": "14:00-15:59",
+      "count_2024": "349",
+      "count_2023": "327"
+    },
+    {
+      "time_period": "16:00-17:59",
+      "count_2024": "409",
+      "count_2023": "447"
+    },
+    {
+      "time_period": "18:00-19:59",
+      "count_2024": "468",
+      "count_2023": "399"
+    },
+    {
+      "time_period": "20:00-21:59",
+      "count_2024": "392",
+      "count_2023": "349"
+    },
+    {
+      "time_period": "22:00-23:59",
+      "count_2024": "223",
+      "count_2023": "226"
+    },
+    {
+      "time_period": "Unknown",
+      "count_2024": "37",
+      "count_2023": "26"
+    }
+  ],
+  "09_vehicle_types_by_region.csv": [
+    {
+      "region": "//Karas",
+      "bus": "1",
+      "grader": "0",
+      "motorcycle": "0",
+      "pickup": "31",
+      "sedan": "25",
+      "suv": "8",
+      "tractor": "1",
+      "trucks": "9",
+      "unknown": "8",
+      "van": "1",
+      "total": "84"
+    },
+    {
+      "region": "Erongo",
+      "bus": "18",
+      "grader": "1",
+      "motorcycle": "15",
+      "pickup": "92",
+      "sedan": "148",
+      "suv": "42",
+      "tractor": "0",
+      "trucks": "33",
+      "unknown": "36",
+      "van": "0",
+      "total": "385"
+    },
+    {
+      "region": "Hardap",
+      "bus": "3",
+      "grader": "0",
+      "motorcycle": "4",
+      "pickup": "45",
+      "sedan": "16",
+      "suv": "9",
+      "tractor": "0",
+      "trucks": "4",
+      "unknown": "4",
+      "van": "0",
+      "total": "85"
+    },
+    {
+      "region": "Kavango East",
+      "bus": "4",
+      "grader": "0",
+      "motorcycle": "0",
+      "pickup": "54",
+      "sedan": "68",
+      "suv": "8",
+      "tractor": "0",
+      "trucks": "9",
+      "unknown": "19",
+      "van": "1",
+      "total": "163"
+    },
+    {
+      "region": "Kavango West",
+      "bus": "4",
+      "grader": "0",
+      "motorcycle": "0",
+      "pickup": "14",
+      "sedan": "15",
+      "suv": "4",
+      "tractor": "0",
+      "trucks": "1",
+      "unknown": "2",
+      "van": "0",
+      "total": "40"
+    },
+    {
+      "region": "Khomas",
+      "bus": "54",
+      "grader": "0",
+      "motorcycle": "32",
+      "pickup": "187",
+      "sedan": "619",
+      "suv": "67",
+      "tractor": "1",
+      "trucks": "41",
+      "unknown": "122",
+      "van": "3",
+      "total": "1126"
+    },
+    {
+      "region": "Kunene",
+      "bus": "2",
+      "grader": "0",
+      "motorcycle": "1",
+      "pickup": "33",
+      "sedan": "7",
+      "suv": "3",
+      "tractor": "1",
+      "trucks": "4",
+      "unknown": "3",
+      "van": "1",
+      "total": "55"
+    },
+    {
+      "region": "Ohangwena",
+      "bus": "3",
+      "grader": "0",
+      "motorcycle": "0",
+      "pickup": "80",
+      "sedan": "72",
+      "suv": "6",
+      "tractor": "2",
+      "trucks": "3",
+      "unknown": "4",
+      "van": "0",
+      "total": "170"
+    },
+    {
+      "region": "Omaheke",
+      "bus": "2",
+      "grader": "0",
+      "motorcycle": "0",
+      "pickup": "37",
+      "sedan": "14",
+      "suv": "5",
+      "tractor": "0",
+      "trucks": "4",
+      "unknown": "9",
+      "van": "0",
+      "total": "71"
+    },
+    {
+      "region": "Omusati",
+      "bus": "0",
+      "grader": "0",
+      "motorcycle": "1",
+      "pickup": "69",
+      "sedan": "40",
+      "suv": "6",
+      "tractor": "1",
+      "trucks": "2",
+      "unknown": "8",
+      "van": "0",
+      "total": "127"
+    },
+    {
+      "region": "Oshana",
+      "bus": "3",
+      "grader": "0",
+      "motorcycle": "0",
+      "pickup": "108",
+      "sedan": "163",
+      "suv": "16",
+      "tractor": "0",
+      "trucks": "8",
+      "unknown": "13",
+      "van": "0",
+      "total": "311"
+    },
+    {
+      "region": "Oshikoto",
+      "bus": "15",
+      "grader": "0",
+      "motorcycle": "1",
+      "pickup": "92",
+      "sedan": "65",
+      "suv": "15",
+      "tractor": "2",
+      "trucks": "15",
+      "unknown": "10",
+      "van": "1",
+      "total": "216"
+    },
+    {
+      "region": "Otjozondjupa",
+      "bus": "20",
+      "grader": "0",
+      "motorcycle": "0",
+      "pickup": "94",
+      "sedan": "84",
+      "suv": "17",
+      "tractor": "4",
+      "trucks": "31",
+      "unknown": "21",
+      "van": "0",
+      "total": "271"
+    },
+    {
+      "region": "Zambezi",
+      "bus": "0",
+      "grader": "0",
+      "motorcycle": "0",
+      "pickup": "34",
+      "sedan": "32",
+      "suv": "7",
+      "tractor": "1",
+      "trucks": "4",
+      "unknown": "11",
+      "van": "1",
+      "total": "90"
+    },
+    {
+      "region": "Total",
+      "bus": "129",
+      "grader": "1",
+      "motorcycle": "54",
+      "pickup": "970",
+      "sedan": "1368",
+      "suv": "213",
+      "tractor": "13",
+      "trucks": "168",
+      "unknown": "270",
+      "van": "8",
+      "total": "3194"
+    }
+  ],
+  "10_vehicle_use.csv": [
+    {
+      "use_type": "Private",
+      "count_2024": "2191",
+      "count_2023": "2156"
+    },
+    {
+      "use_type": "Company",
+      "count_2024": "361",
+      "count_2023": "346"
+    },
+    {
+      "use_type": "Public",
+      "count_2024": "341",
+      "count_2023": "295"
+    },
+    {
+      "use_type": "Unknown",
+      "count_2024": "301",
+      "count_2023": "270"
+    }
+  ],
+  "11_injuries_per_month.csv": [
+    {
+      "month": "Jan",
+      "count_2024": "342",
+      "count_2023": "387",
+      "count_2022": "419",
+      "count_2021": "398",
+      "count_2020": "407"
+    },
+    {
+      "month": "Feb",
+      "count_2024": "324",
+      "count_2023": "328",
+      "count_2022": "394",
+      "count_2021": "433",
+      "count_2020": "466"
+    },
+    {
+      "month": "Mar",
+      "count_2024": "460",
+      "count_2023": "440",
+      "count_2022": "387",
+      "count_2021": "553",
+      "count_2020": "398"
+    },
+    {
+      "month": "Apr",
+      "count_2024": "491",
+      "count_2023": "508",
+      "count_2022": "508",
+      "count_2021": "491",
+      "count_2020": "150"
+    },
+    {
+      "month": "May",
+      "count_2024": "377",
+      "count_2023": "388",
+      "count_2022": "408",
+      "count_2021": "493",
+      "count_2020": "343"
+    },
+    {
+      "month": "Jun",
+      "count_2024": "479",
+      "count_2023": "516",
+      "count_2022": "488",
+      "count_2021": "339",
+      "count_2020": "382"
+    },
+    {
+      "month": "Jul",
+      "count_2024": "457",
+      "count_2023": "492",
+      "count_2022": "481",
+      "count_2021": "279",
+      "count_2020": "442"
+    },
+    {
+      "month": "Aug",
+      "count_2024": "526",
+      "count_2023": "463",
+      "count_2022": "485",
+      "count_2021": "506",
+      "count_2020": "391"
+    },
+    {
+      "month": "Sep",
+      "count_2024": "520",
+      "count_2023": "464",
+      "count_2022": "418",
+      "count_2021": "459",
+      "count_2020": "474"
+    },
+    {
+      "month": "Oct",
+      "count_2024": "502",
+      "count_2023": "445",
+      "count_2022": "501",
+      "count_2021": "500",
+      "count_2020": "522"
+    },
+    {
+      "month": "Nov",
+      "count_2024": "414",
+      "count_2023": "433",
+      "count_2022": "323",
+      "count_2021": "410",
+      "count_2020": "471"
+    },
+    {
+      "month": "Dec",
+      "count_2024": "558",
+      "count_2023": "569",
+      "count_2022": "532",
+      "count_2021": "585",
+      "count_2020": "623"
+    },
+    {
+      "month": "Total",
+      "count_2024": "5450",
+      "count_2023": "5433",
+      "count_2022": "5344",
+      "count_2021": "5446",
+      "count_2020": "5069"
+    }
+  ],
+  "12_injuries_by_region.csv": [
+    {
+      "region": "//Karas",
+      "injuries_2024": "143",
+      "injuries_2023": "194"
+    },
+    {
+      "region": "Erongo",
+      "injuries_2024": "646",
+      "injuries_2023": "666"
+    },
+    {
+      "region": "Hardap",
+      "injuries_2024": "165",
+      "injuries_2023": "281"
+    },
+    {
+      "region": "Kavango East",
+      "injuries_2024": "296",
+      "injuries_2023": "178"
+    },
+    {
+      "region": "Kavango West",
+      "injuries_2024": "84",
+      "injuries_2023": "99"
+    },
+    {
+      "region": "Khomas",
+      "injuries_2024": "1629",
+      "injuries_2023": "1506"
+    },
+    {
+      "region": "Kunene",
+      "injuries_2024": "125",
+      "injuries_2023": "148"
+    },
+    {
+      "region": "Ohangwena",
+      "injuries_2024": "285",
+      "injuries_2023": "223"
+    },
+    {
+      "region": "Omaheke",
+      "injuries_2024": "156",
+      "injuries_2023": "151"
+    },
+    {
+      "region": "Omusati",
+      "injuries_2024": "208",
+      "injuries_2023": "259"
+    },
+    {
+      "region": "Oshana",
+      "injuries_2024": "496",
+      "injuries_2023": "519"
+    },
+    {
+      "region": "Oshikoto",
+      "injuries_2024": "428",
+      "injuries_2023": "466"
+    },
+    {
+      "region": "Otjozondjupa",
+      "injuries_2024": "640",
+      "injuries_2023": "519"
+    },
+    {
+      "region": "Zambezi",
+      "injuries_2024": "149",
+      "injuries_2023": "172"
+    }
+  ],
+  "13_injuries_by_age_group.csv": [
+    {
+      "age_group": "0-4",
+      "count_2024": "83",
+      "count_2023": "95"
+    },
+    {
+      "age_group": "5-9",
+      "count_2024": "195",
+      "count_2023": "220"
+    },
+    {
+      "age_group": "10-14",
+      "count_2024": "193",
+      "count_2023": "187"
+    },
+    {
+      "age_group": "15-19",
+      "count_2024": "215",
+      "count_2023": "268"
+    },
+    {
+      "age_group": "20-24",
+      "count_2024": "438",
+      "count_2023": "537"
+    },
+    {
+      "age_group": "25-29",
+      "count_2024": "667",
+      "count_2023": "689"
+    },
+    {
+      "age_group": "30-34",
+      "count_2024": "757",
+      "count_2023": "817"
+    },
+    {
+      "age_group": "35-39",
+      "count_2024": "543",
+      "count_2023": "549"
+    },
+    {
+      "age_group": "40-44",
+      "count_2024": "438",
+      "count_2023": "453"
+    },
+    {
+      "age_group": "45-49",
+      "count_2024": "336",
+      "count_2023": "350"
+    },
+    {
+      "age_group": "50-54",
+      "count_2024": "235",
+      "count_2023": "251"
+    },
+    {
+      "age_group": "55-59",
+      "count_2024": "201",
+      "count_2023": "187"
+    },
+    {
+      "age_group": "60-65",
+      "count_2024": "150",
+      "count_2023": "138"
+    },
+    {
+      "age_group": ">65",
+      "count_2024": "155",
+      "count_2023": "154"
+    },
+    {
+      "age_group": "Unknown",
+      "count_2024": "837",
+      "count_2023": "555"
+    }
+  ],
+  "14_injuries_by_sex_and_roaduser.csv": [
+    {
+      "category": "sex",
+      "type": "Male",
+      "count_2024": "3395",
+      "count_2023": "3157"
+    },
+    {
+      "category": "sex",
+      "type": "Female",
+      "count_2024": "2042",
+      "count_2023": "1892"
+    },
+    {
+      "category": "sex",
+      "type": "Unknown",
+      "count_2024": "13",
+      "count_2023": "384"
+    },
+    {
+      "category": "road_user",
+      "type": "Cyclist",
+      "count_2024": "56",
+      "count_2023": "67"
+    },
+    {
+      "category": "road_user",
+      "type": "Driver",
+      "count_2024": "1261",
+      "count_2023": "1131"
+    },
+    {
+      "category": "road_user",
+      "type": "Motor Cyclist",
+      "count_2024": "41",
+      "count_2023": "69"
+    },
+    {
+      "category": "road_user",
+      "type": "Passenger",
+      "count_2024": "2582",
+      "count_2023": "2803"
+    },
+    {
+      "category": "road_user",
+      "type": "Pedestrian",
+      "count_2024": "963",
+      "count_2023": "870"
+    },
+    {
+      "category": "road_user",
+      "type": "Other/Unknown",
+      "count_2024": "530",
+      "count_2023": "396"
+    }
+  ],
+  "15_fatalities_per_month.csv": [
+    {
+      "month": "Jan",
+      "count_2024": "32",
+      "count_2023": "23",
+      "count_2022": "38",
+      "count_2021": "23",
+      "count_2020": "42"
+    },
+    {
+      "month": "Feb",
+      "count_2024": "29",
+      "count_2023": "36",
+      "count_2022": "30",
+      "count_2021": "40",
+      "count_2020": "26"
+    },
+    {
+      "month": "Mar",
+      "count_2024": "39",
+      "count_2023": "35",
+      "count_2022": "46",
+      "count_2021": "52",
+      "count_2020": "51"
+    },
+    {
+      "month": "Apr",
+      "count_2024": "42",
+      "count_2023": "37",
+      "count_2022": "44",
+      "count_2021": "55",
+      "count_2020": "13"
+    },
+    {
+      "month": "May",
+      "count_2024": "27",
+      "count_2023": "22",
+      "count_2022": "50",
+      "count_2021": "36",
+      "count_2020": "30"
+    },
+    {
+      "month": "Jun",
+      "count_2024": "38",
+      "count_2023": "27",
+      "count_2022": "35",
+      "count_2021": "36",
+      "count_2020": "29"
+    },
+    {
+      "month": "Jul",
+      "count_2024": "28",
+      "count_2023": "49",
+      "count_2022": "39",
+      "count_2021": "30",
+      "count_2020": "41"
+    },
+    {
+      "month": "Aug",
+      "count_2024": "40",
+      "count_2023": "35",
+      "count_2022": "33",
+      "count_2021": "56",
+      "count_2020": "34"
+    },
+    {
+      "month": "Sep",
+      "count_2024": "29",
+      "count_2023": "31",
+      "count_2022": "28",
+      "count_2021": "47",
+      "count_2020": "41"
+    },
+    {
+      "month": "Oct",
+      "count_2024": "39",
+      "count_2023": "55",
+      "count_2022": "42",
+      "count_2021": "39",
+      "count_2020": "42"
+    },
+    {
+      "month": "Nov",
+      "count_2024": "36",
+      "count_2023": "32",
+      "count_2022": "35",
+      "count_2021": "61",
+      "count_2020": "59"
+    },
+    {
+      "month": "Dec",
+      "count_2024": "64",
+      "count_2023": "46",
+      "count_2022": "51",
+      "count_2021": "78",
+      "count_2020": "59"
+    },
+    {
+      "month": "Total",
+      "count_2024": "443",
+      "count_2023": "428",
+      "count_2022": "471",
+      "count_2021": "553",
+      "count_2020": "467"
+    }
+  ],
+  "16_fatalities_per_region.csv": [
+    {
+      "region": "//Karas",
+      "count_2024": "18",
+      "count_2023": "21",
+      "count_2022": "20",
+      "count_2021": "24",
+      "count_2020": "32"
+    },
+    {
+      "region": "Erongo",
+      "count_2024": "37",
+      "count_2023": "47",
+      "count_2022": "40",
+      "count_2021": "42",
+      "count_2020": "28"
+    },
+    {
+      "region": "Hardap",
+      "count_2024": "17",
+      "count_2023": "26",
+      "count_2022": "26",
+      "count_2021": "39",
+      "count_2020": "22"
+    },
+    {
+      "region": "Kavango East",
+      "count_2024": "32",
+      "count_2023": "23",
+      "count_2022": "24",
+      "count_2021": "28",
+      "count_2020": "21"
+    },
+    {
+      "region": "Kavango West",
+      "count_2024": "12",
+      "count_2023": "17",
+      "count_2022": "17",
+      "count_2021": "17",
+      "count_2020": "13"
+    },
+    {
+      "region": "Khomas",
+      "count_2024": "49",
+      "count_2023": "48",
+      "count_2022": "62",
+      "count_2021": "65",
+      "count_2020": "38"
+    },
+    {
+      "region": "Kunene",
+      "count_2024": "25",
+      "count_2023": "15",
+      "count_2022": "18",
+      "count_2021": "21",
+      "count_2020": "28"
+    },
+    {
+      "region": "Ohangwena",
+      "count_2024": "37",
+      "count_2023": "29",
+      "count_2022": "47",
+      "count_2021": "46",
+      "count_2020": "31"
+    },
+    {
+      "region": "Omaheke",
+      "count_2024": "27",
+      "count_2023": "21",
+      "count_2022": "11",
+      "count_2021": "18",
+      "count_2020": "20"
+    },
+    {
+      "region": "Omusati",
+      "count_2024": "25",
+      "count_2023": "21",
+      "count_2022": "29",
+      "count_2021": "43",
+      "count_2020": "29"
+    },
+    {
+      "region": "Oshana",
+      "count_2024": "42",
+      "count_2023": "27",
+      "count_2022": "42",
+      "count_2021": "46",
+      "count_2020": "32"
+    },
+    {
+      "region": "Oshikoto",
+      "count_2024": "54",
+      "count_2023": "51",
+      "count_2022": "49",
+      "count_2021": "49",
+      "count_2020": "60"
+    },
+    {
+      "region": "Otjozondjupa",
+      "count_2024": "53",
+      "count_2023": "55",
+      "count_2022": "52",
+      "count_2021": "80",
+      "count_2020": "86"
+    },
+    {
+      "region": "Zambezi",
+      "count_2024": "15",
+      "count_2023": "27",
+      "count_2022": "34",
+      "count_2021": "35",
+      "count_2020": "27"
+    },
+    {
+      "region": "Total",
+      "count_2024": "443",
+      "count_2023": "428",
+      "count_2022": "471",
+      "count_2021": "553",
+      "count_2020": "467"
+    }
+  ],
+  "17_fatalities_by_sex_region.csv": [
+    {
+      "region": "//Karas",
+      "female": "8",
+      "male": "10",
+      "total": "18"
+    },
+    {
+      "region": "Erongo",
+      "female": "5",
+      "male": "32",
+      "total": "37"
+    },
+    {
+      "region": "Hardap",
+      "female": "3",
+      "male": "14",
+      "total": "17"
+    },
+    {
+      "region": "Kavango East",
+      "female": "11",
+      "male": "21",
+      "total": "32"
+    },
+    {
+      "region": "Kavango West",
+      "female": "2",
+      "male": "10",
+      "total": "12"
+    },
+    {
+      "region": "Khomas",
+      "female": "10",
+      "male": "39",
+      "total": "49"
+    },
+    {
+      "region": "Kunene",
+      "female": "8",
+      "male": "17",
+      "total": "25"
+    },
+    {
+      "region": "Ohangwena",
+      "female": "12",
+      "male": "25",
+      "total": "37"
+    },
+    {
+      "region": "Omaheke",
+      "female": "4",
+      "male": "23",
+      "total": "27"
+    },
+    {
+      "region": "Omusati",
+      "female": "7",
+      "male": "18",
+      "total": "25"
+    },
+    {
+      "region": "Oshana",
+      "female": "4",
+      "male": "38",
+      "total": "42"
+    },
+    {
+      "region": "Oshikoto",
+      "female": "16",
+      "male": "38",
+      "total": "54"
+    },
+    {
+      "region": "Otjozondjupa",
+      "female": "12",
+      "male": "41",
+      "total": "53"
+    },
+    {
+      "region": "Zambezi",
+      "female": "2",
+      "male": "13",
+      "total": "15"
+    },
+    {
+      "region": "Total",
+      "female": "104",
+      "male": "339",
+      "total": "443"
+    }
+  ],
+  "18_fatalities_by_age_sex.csv": [
+    {
+      "age_group": "0-4",
+      "female": "11",
+      "male": "12",
+      "unknown_total_count": "23"
+    },
+    {
+      "age_group": "5-9",
+      "female": "7",
+      "male": "13",
+      "unknown_total_count": "20"
+    },
+    {
+      "age_group": "10-14",
+      "female": "6",
+      "male": "6",
+      "unknown_total_count": "12"
+    },
+    {
+      "age_group": "15-19",
+      "female": "5",
+      "male": "10",
+      "unknown_total_count": "15"
+    },
+    {
+      "age_group": "20-24",
+      "female": "6",
+      "male": "27",
+      "unknown_total_count": "33"
+    },
+    {
+      "age_group": "25-29",
+      "female": "8",
+      "male": "60",
+      "unknown_total_count": "68"
+    },
+    {
+      "age_group": "30-34",
+      "female": "13",
+      "male": "31",
+      "unknown_total_count": "44"
+    },
+    {
+      "age_group": "35-39",
+      "female": "10",
+      "male": "34",
+      "unknown_total_count": "44"
+    },
+    {
+      "age_group": "40-44",
+      "female": "6",
+      "male": "34",
+      "unknown_total_count": "40"
+    },
+    {
+      "age_group": "45-49",
+      "female": "7",
+      "male": "25",
+      "unknown_total_count": "32"
+    },
+    {
+      "age_group": "50-54",
+      "female": "2",
+      "male": "19",
+      "unknown_total_count": "21"
+    },
+    {
+      "age_group": "55-59",
+      "female": "4",
+      "male": "21",
+      "unknown_total_count": "25"
+    },
+    {
+      "age_group": "60-65",
+      "female": "7",
+      "male": "15",
+      "unknown_total_count": "22"
+    },
+    {
+      "age_group": ">65",
+      "female": "7",
+      "male": "22",
+      "unknown_total_count": "29"
+    },
+    {
+      "age_group": "Unknown",
+      "female": "5",
+      "male": "10",
+      "unknown_total_count": "15"
+    },
+    {
+      "age_group": "Total",
+      "female": "104",
+      "male": "339",
+      "unknown_total_count": "443"
+    }
+  ],
+  "19_fatalities_by_roaduser_age.csv": [
+    {
+      "age_group": "0-4",
+      "cyclist": "0",
+      "driver": "0",
+      "motor_cyclist": "0",
+      "passenger": "10",
+      "pedestrian": "13",
+      "total": "23"
+    },
+    {
+      "age_group": "5-9",
+      "cyclist": "0",
+      "driver": "0",
+      "motor_cyclist": "0",
+      "passenger": "7",
+      "pedestrian": "13",
+      "total": "20"
+    },
+    {
+      "age_group": "10-14",
+      "cyclist": "0",
+      "driver": "0",
+      "motor_cyclist": "0",
+      "passenger": "6",
+      "pedestrian": "6",
+      "total": "12"
+    },
+    {
+      "age_group": "15-19",
+      "cyclist": "1",
+      "driver": "1",
+      "motor_cyclist": "0",
+      "passenger": "7",
+      "pedestrian": "6",
+      "total": "15"
+    },
+    {
+      "age_group": "20-24",
+      "cyclist": "1",
+      "driver": "3",
+      "motor_cyclist": "0",
+      "passenger": "18",
+      "pedestrian": "11",
+      "total": "33"
+    },
+    {
+      "age_group": "25-29",
+      "cyclist": "1",
+      "driver": "15",
+      "motor_cyclist": "1",
+      "passenger": "30",
+      "pedestrian": "21",
+      "total": "68"
+    },
+    {
+      "age_group": "30-34",
+      "cyclist": "0",
+      "driver": "12",
+      "motor_cyclist": "2",
+      "passenger": "17",
+      "pedestrian": "13",
+      "total": "44"
+    },
+    {
+      "age_group": "35-39",
+      "cyclist": "0",
+      "driver": "15",
+      "motor_cyclist": "1",
+      "passenger": "16",
+      "pedestrian": "12",
+      "total": "44"
+    },
+    {
+      "age_group": "40-44",
+      "cyclist": "0",
+      "driver": "14",
+      "motor_cyclist": "0",
+      "passenger": "14",
+      "pedestrian": "12",
+      "total": "40"
+    },
+    {
+      "age_group": "45-49",
+      "cyclist": "1",
+      "driver": "11",
+      "motor_cyclist": "0",
+      "passenger": "17",
+      "pedestrian": "3",
+      "total": "32"
+    },
+    {
+      "age_group": "50-54",
+      "cyclist": "1",
+      "driver": "4",
+      "motor_cyclist": "0",
+      "passenger": "7",
+      "pedestrian": "9",
+      "total": "21"
+    },
+    {
+      "age_group": "55-59",
+      "cyclist": "0",
+      "driver": "6",
+      "motor_cyclist": "2",
+      "passenger": "10",
+      "pedestrian": "7",
+      "total": "25"
+    },
+    {
+      "age_group": "60-65",
+      "cyclist": "0",
+      "driver": "9",
+      "motor_cyclist": "0",
+      "passenger": "9",
+      "pedestrian": "4",
+      "total": "22"
+    },
+    {
+      "age_group": ">65",
+      "cyclist": "1",
+      "driver": "6",
+      "motor_cyclist": "1",
+      "passenger": "10",
+      "pedestrian": "11",
+      "total": "29"
+    },
+    {
+      "age_group": "Unknown",
+      "cyclist": "0",
+      "driver": "1",
+      "motor_cyclist": "0",
+      "passenger": "11",
+      "pedestrian": "3",
+      "total": "15"
+    },
+    {
+      "age_group": "Total",
+      "cyclist": "6",
+      "driver": "97",
+      "motor_cyclist": "7",
+      "passenger": "189",
+      "pedestrian": "144",
+      "total": "443"
+    }
+  ],
+  "20_fatalities_roaduser_placeofdeath.csv": [
+    {
+      "category": "road_user",
+      "type": "Cyclist",
+      "count_2024": "6",
+      "count_2023": "9"
+    },
+    {
+      "category": "road_user",
+      "type": "Driver",
+      "count_2024": "97",
+      "count_2023": "86"
+    },
+    {
+      "category": "road_user",
+      "type": "Motor Cyclist",
+      "count_2024": "7",
+      "count_2023": "1"
+    },
+    {
+      "category": "road_user",
+      "type": "Passenger",
+      "count_2024": "189",
+      "count_2023": "164"
+    },
+    {
+      "category": "road_user",
+      "type": "Pedestrian",
+      "count_2024": "144",
+      "count_2023": "161"
+    },
+    {
+      "category": "road_user",
+      "type": "Other/Unknown",
+      "count_2024": "0",
+      "count_2023": "7"
+    },
+    {
+      "category": "place_of_death",
+      "type": "At Crash Scene",
+      "count_2024": "300",
+      "count_2023": "284"
+    },
+    {
+      "category": "place_of_death",
+      "type": "At Hospital",
+      "count_2024": "100",
+      "count_2023": "104"
+    },
+    {
+      "category": "place_of_death",
+      "type": "In Ambulance",
+      "count_2024": "5",
+      "count_2023": "9"
+    },
+    {
+      "category": "place_of_death",
+      "type": "Unknown",
+      "count_2024": "38",
+      "count_2023": "31"
+    }
+  ],
+  "21_pedestrian_crashes_per_region.csv": [
+    {
+      "region": "//Karas",
+      "total_crashes": "84",
+      "pedestrian_crashes": "24",
+      "proportion_pct": "29"
+    },
+    {
+      "region": "Erongo",
+      "total_crashes": "385",
+      "pedestrian_crashes": "113",
+      "proportion_pct": "29"
+    },
+    {
+      "region": "Hardap",
+      "total_crashes": "85",
+      "pedestrian_crashes": "20",
+      "proportion_pct": "24"
+    },
+    {
+      "region": "Kavango East",
+      "total_crashes": "163",
+      "pedestrian_crashes": "74",
+      "proportion_pct": "45"
+    },
+    {
+      "region": "Kavango West",
+      "total_crashes": "40",
+      "pedestrian_crashes": "13",
+      "proportion_pct": "33"
+    },
+    {
+      "region": "Khomas",
+      "total_crashes": "1126",
+      "pedestrian_crashes": "439",
+      "proportion_pct": "39"
+    },
+    {
+      "region": "Kunene",
+      "total_crashes": "55",
+      "pedestrian_crashes": "16",
+      "proportion_pct": "29"
+    },
+    {
+      "region": "Ohangwena",
+      "total_crashes": "170",
+      "pedestrian_crashes": "62",
+      "proportion_pct": "36"
+    },
+    {
+      "region": "Omaheke",
+      "total_crashes": "71",
+      "pedestrian_crashes": "16",
+      "proportion_pct": "23"
+    },
+    {
+      "region": "Omusati",
+      "total_crashes": "127",
+      "pedestrian_crashes": "30",
+      "proportion_pct": "24"
+    },
+    {
+      "region": "Oshana",
+      "total_crashes": "311",
+      "pedestrian_crashes": "98",
+      "proportion_pct": "32"
+    },
+    {
+      "region": "Oshikoto",
+      "total_crashes": "216",
+      "pedestrian_crashes": "58",
+      "proportion_pct": "27"
+    },
+    {
+      "region": "Otjozondjupa",
+      "total_crashes": "271",
+      "pedestrian_crashes": "42",
+      "proportion_pct": "15"
+    },
+    {
+      "region": "Zambezi",
+      "total_crashes": "90",
+      "pedestrian_crashes": "31",
+      "proportion_pct": "34"
+    },
+    {
+      "region": "Grand Total",
+      "total_crashes": "3194",
+      "pedestrian_crashes": "1036",
+      "proportion_pct": "32"
+    }
+  ],
+  "22_pedestrian_crashes_time_day.csv": [
+    {
+      "category": "time",
+      "label": "00:00-01:59",
+      "count_2024": "57",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "02:00-03:59",
+      "count_2024": "19",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "04:00-05:59",
+      "count_2024": "19",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "06:00-07:59",
+      "count_2024": "102",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "08:00-09:59",
+      "count_2024": "55",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "10:00-11:59",
+      "count_2024": "62",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "12:00-13:59",
+      "count_2024": "105",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "14:00-15:59",
+      "count_2024": "114",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "16:00-17:59",
+      "count_2024": "119",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "18:00-19:59",
+      "count_2024": "155",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "20:00-21:59",
+      "count_2024": "154",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "22:00-23:59",
+      "count_2024": "62",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "Unknown",
+      "count_2024": "13",
+      "count_2023": "*"
+    },
+    {
+      "category": "day",
+      "label": "Monday",
+      "count_2024": "162",
+      "count_2023": "131"
+    },
+    {
+      "category": "day",
+      "label": "Tuesday",
+      "count_2024": "124",
+      "count_2023": "130"
+    },
+    {
+      "category": "day",
+      "label": "Wednesday",
+      "count_2024": "135",
+      "count_2023": "135"
+    },
+    {
+      "category": "day",
+      "label": "Thursday",
+      "count_2024": "129",
+      "count_2023": "127"
+    },
+    {
+      "category": "day",
+      "label": "Friday",
+      "count_2024": "182",
+      "count_2023": "163"
+    },
+    {
+      "category": "day",
+      "label": "Saturday",
+      "count_2024": "156",
+      "count_2023": "176"
+    },
+    {
+      "category": "day",
+      "label": "Sunday",
+      "count_2024": "148",
+      "count_2023": "140"
+    }
+  ],
+  "23_pedestrian_injuries_fatalities.csv": [
+    {
+      "metric": "pedestrian_injuries_total",
+      "count_2024": "964",
+      "count_2023": "944"
+    },
+    {
+      "metric": "pedestrian_fatalities_total",
+      "count_2024": "142",
+      "count_2023": "158"
+    },
+    {
+      "metric": "pedestrian_injuries_male",
+      "count_2024": "612",
+      "count_2023": "564"
+    },
+    {
+      "metric": "pedestrian_injuries_female",
+      "count_2024": "351",
+      "count_2023": "342"
+    },
+    {
+      "metric": "pedestrian_fatalities_male",
+      "count_2024": "113",
+      "count_2023": "126"
+    },
+    {
+      "metric": "pedestrian_fatalities_female",
+      "count_2024": "29",
+      "count_2023": "32"
+    },
+    {
+      "metric": "pedestrian_fatalities_at_crash_scene",
+      "count_2024": "100",
+      "count_2023": "98"
+    },
+    {
+      "metric": "pedestrian_fatalities_at_hospital",
+      "count_2024": "29",
+      "count_2023": "41"
+    },
+    {
+      "metric": "pedestrian_fatalities_in_ambulance",
+      "count_2024": "0",
+      "count_2023": "3"
+    },
+    {
+      "metric": "pedestrian_fatalities_unknown",
+      "count_2024": "13",
+      "count_2023": "16"
+    }
+  ],
+  "24_pedestrian_age_breakdown.csv": [
+    {
+      "age_group": "0-4",
+      "injuries_2024": "30",
+      "injuries_2023": "25",
+      "fatalities_2024": "14",
+      "fatalities_2023": "11"
+    },
+    {
+      "age_group": "5-9",
+      "injuries_2024": "113",
+      "injuries_2023": "109",
+      "fatalities_2024": "8",
+      "fatalities_2023": "13"
+    },
+    {
+      "age_group": "10-14",
+      "injuries_2024": "67",
+      "injuries_2023": "75",
+      "fatalities_2024": "6",
+      "fatalities_2023": "6"
+    },
+    {
+      "age_group": "15-19",
+      "injuries_2024": "66",
+      "injuries_2023": "54",
+      "fatalities_2024": "9",
+      "fatalities_2023": "6"
+    },
+    {
+      "age_group": "20-24",
+      "injuries_2024": "86",
+      "injuries_2023": "67",
+      "fatalities_2024": "10",
+      "fatalities_2023": "10"
+    },
+    {
+      "age_group": "25-29",
+      "injuries_2024": "80",
+      "injuries_2023": "106",
+      "fatalities_2024": "21",
+      "fatalities_2023": "24"
+    },
+    {
+      "age_group": "30-34",
+      "injuries_2024": "102",
+      "injuries_2023": "93",
+      "fatalities_2024": "16",
+      "fatalities_2023": "13"
+    },
+    {
+      "age_group": "35-39",
+      "injuries_2024": "74",
+      "injuries_2023": "69",
+      "fatalities_2024": "12",
+      "fatalities_2023": "22"
+    },
+    {
+      "age_group": "40-44",
+      "injuries_2024": "66",
+      "injuries_2023": "64",
+      "fatalities_2024": "14",
+      "fatalities_2023": "12"
+    },
+    {
+      "age_group": "45-49",
+      "injuries_2024": "65",
+      "injuries_2023": "49",
+      "fatalities_2024": "4",
+      "fatalities_2023": "6"
+    },
+    {
+      "age_group": "50-54",
+      "injuries_2024": "37",
+      "injuries_2023": "53",
+      "fatalities_2024": "3",
+      "fatalities_2023": "9"
+    },
+    {
+      "age_group": "55-59",
+      "injuries_2024": "28",
+      "injuries_2023": "25",
+      "fatalities_2024": "3",
+      "fatalities_2023": "4"
+    },
+    {
+      "age_group": "60-65",
+      "injuries_2024": "19",
+      "injuries_2023": "22",
+      "fatalities_2024": "3",
+      "fatalities_2023": "4"
+    },
+    {
+      "age_group": ">65",
+      "injuries_2024": "30",
+      "injuries_2023": "32",
+      "fatalities_2024": "8",
+      "fatalities_2023": "11"
+    },
+    {
+      "age_group": "Unknown",
+      "injuries_2024": "102",
+      "injuries_2023": "101",
+      "fatalities_2024": "3",
+      "fatalities_2023": "2"
+    },
+    {
+      "age_group": "Total",
+      "injuries_2024": "",
+      "injuries_2023": "",
+      "fatalities_2024": "142",
+      "fatalities_2023": "158"
+    }
+  ],
+  "25_rollover_crashes_per_region.csv": [
+    {
+      "region": "//Karas",
+      "total_crashes": "84",
+      "rollover_crashes": "30",
+      "proportion_pct": "36"
+    },
+    {
+      "region": "Erongo",
+      "total_crashes": "385",
+      "rollover_crashes": "91",
+      "proportion_pct": "24"
+    },
+    {
+      "region": "Hardap",
+      "total_crashes": "85",
+      "rollover_crashes": "37",
+      "proportion_pct": "44"
+    },
+    {
+      "region": "Kavango East",
+      "total_crashes": "163",
+      "rollover_crashes": "26",
+      "proportion_pct": "16"
+    },
+    {
+      "region": "Kavango West",
+      "total_crashes": "40",
+      "rollover_crashes": "9",
+      "proportion_pct": "23"
+    },
+    {
+      "region": "Khomas",
+      "total_crashes": "1126",
+      "rollover_crashes": "71",
+      "proportion_pct": "6"
+    },
+    {
+      "region": "Kunene",
+      "total_crashes": "55",
+      "rollover_crashes": "16",
+      "proportion_pct": "29"
+    },
+    {
+      "region": "Ohangwena",
+      "total_crashes": "170",
+      "rollover_crashes": "37",
+      "proportion_pct": "22"
+    },
+    {
+      "region": "Omaheke",
+      "total_crashes": "71",
+      "rollover_crashes": "28",
+      "proportion_pct": "39"
+    },
+    {
+      "region": "Omusati",
+      "total_crashes": "127",
+      "rollover_crashes": "38",
+      "proportion_pct": "30"
+    },
+    {
+      "region": "Oshana",
+      "total_crashes": "311",
+      "rollover_crashes": "40",
+      "proportion_pct": "13"
+    },
+    {
+      "region": "Oshikoto",
+      "total_crashes": "216",
+      "rollover_crashes": "50",
+      "proportion_pct": "23"
+    },
+    {
+      "region": "Otjozondjupa",
+      "total_crashes": "271",
+      "rollover_crashes": "103",
+      "proportion_pct": "38"
+    },
+    {
+      "region": "Zambezi",
+      "total_crashes": "90",
+      "rollover_crashes": "18",
+      "proportion_pct": "20"
+    },
+    {
+      "region": "Grand Total",
+      "total_crashes": "3194",
+      "rollover_crashes": "594",
+      "proportion_pct": "19"
+    }
+  ],
+  "26_rollover_time_day.csv": [
+    {
+      "category": "time",
+      "label": "00:00-01:59",
+      "count_2024": "35",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "02:00-03:59",
+      "count_2024": "26",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "04:00-05:59",
+      "count_2024": "30",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "06:00-07:59",
+      "count_2024": "32",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "08:00-09:59",
+      "count_2024": "43",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "10:00-11:59",
+      "count_2024": "53",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "12:00-13:59",
+      "count_2024": "44",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "14:00-15:59",
+      "count_2024": "82",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "16:00-17:59",
+      "count_2024": "98",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "18:00-19:59",
+      "count_2024": "72",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "20:00-21:59",
+      "count_2024": "39",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "22:00-23:59",
+      "count_2024": "36",
+      "count_2023": "*"
+    },
+    {
+      "category": "time",
+      "label": "Unknown",
+      "count_2024": "4",
+      "count_2023": "*"
+    },
+    {
+      "category": "day",
+      "label": "Monday",
+      "count_2024": "65",
+      "count_2023": "68"
+    },
+    {
+      "category": "day",
+      "label": "Tuesday",
+      "count_2024": "65",
+      "count_2023": "80"
+    },
+    {
+      "category": "day",
+      "label": "Wednesday",
+      "count_2024": "66",
+      "count_2023": "70"
+    },
+    {
+      "category": "day",
+      "label": "Thursday",
+      "count_2024": "65",
+      "count_2023": "79"
+    },
+    {
+      "category": "day",
+      "label": "Friday",
+      "count_2024": "106",
+      "count_2023": "110"
+    },
+    {
+      "category": "day",
+      "label": "Saturday",
+      "count_2024": "110",
+      "count_2023": "141"
+    },
+    {
+      "category": "day",
+      "label": "Sunday",
+      "count_2024": "117",
+      "count_2023": "118"
+    }
+  ],
+  "27_benefit_claims_trend.csv": [
+    {
+      "year": "2020",
+      "total_claims": "2426"
+    },
+    {
+      "year": "2021",
+      "total_claims": "2741"
+    },
+    {
+      "year": "2022",
+      "total_claims": "2582"
+    },
+    {
+      "year": "2023",
+      "total_claims": "2337"
+    },
+    {
+      "year": "2024",
+      "total_claims": "2484"
+    }
+  ],
+  "28_claims_by_type_month.csv": [
+    {
+      "month": "Jan",
+      "injury_grant": "154",
+      "funeral_grant": "51",
+      "loss_of_support": "10",
+      "loss_of_income": "0",
+      "medical_cost_reimbursement": "1",
+      "other_reimbursement": "0",
+      "total_claims": "216"
+    },
+    {
+      "month": "Feb",
+      "injury_grant": "123",
+      "funeral_grant": "25",
+      "loss_of_support": "10",
+      "loss_of_income": "5",
+      "medical_cost_reimbursement": "5",
+      "other_reimbursement": "0",
+      "total_claims": "168"
+    },
+    {
+      "month": "Mar",
+      "injury_grant": "124",
+      "funeral_grant": "38",
+      "loss_of_support": "7",
+      "loss_of_income": "12",
+      "medical_cost_reimbursement": "1",
+      "other_reimbursement": "0",
+      "total_claims": "182"
+    },
+    {
+      "month": "Apr",
+      "injury_grant": "153",
+      "funeral_grant": "41",
+      "loss_of_support": "7",
+      "loss_of_income": "3",
+      "medical_cost_reimbursement": "2",
+      "other_reimbursement": "0",
+      "total_claims": "206"
+    },
+    {
+      "month": "May",
+      "injury_grant": "180",
+      "funeral_grant": "27",
+      "loss_of_support": "10",
+      "loss_of_income": "4",
+      "medical_cost_reimbursement": "2",
+      "other_reimbursement": "1",
+      "total_claims": "224"
+    },
+    {
+      "month": "Jun",
+      "injury_grant": "101",
+      "funeral_grant": "20",
+      "loss_of_support": "8",
+      "loss_of_income": "0",
+      "medical_cost_reimbursement": "3",
+      "other_reimbursement": "0",
+      "total_claims": "132"
+    },
+    {
+      "month": "Jul",
+      "injury_grant": "213",
+      "funeral_grant": "50",
+      "loss_of_support": "8",
+      "loss_of_income": "6",
+      "medical_cost_reimbursement": "1",
+      "other_reimbursement": "2",
+      "total_claims": "280"
+    },
+    {
+      "month": "Aug",
+      "injury_grant": "153",
+      "funeral_grant": "31",
+      "loss_of_support": "3",
+      "loss_of_income": "5",
+      "medical_cost_reimbursement": "2",
+      "other_reimbursement": "0",
+      "total_claims": "194"
+    },
+    {
+      "month": "Sep",
+      "injury_grant": "173",
+      "funeral_grant": "28",
+      "loss_of_support": "2",
+      "loss_of_income": "6",
+      "medical_cost_reimbursement": "1",
+      "other_reimbursement": "0",
+      "total_claims": "210"
+    },
+    {
+      "month": "Oct",
+      "injury_grant": "208",
+      "funeral_grant": "39",
+      "loss_of_support": "9",
+      "loss_of_income": "8",
+      "medical_cost_reimbursement": "3",
+      "other_reimbursement": "0",
+      "total_claims": "267"
+    },
+    {
+      "month": "Nov",
+      "injury_grant": "164",
+      "funeral_grant": "37",
+      "loss_of_support": "8",
+      "loss_of_income": "7",
+      "medical_cost_reimbursement": "3",
+      "other_reimbursement": "0",
+      "total_claims": "219"
+    },
+    {
+      "month": "Dec",
+      "injury_grant": "125",
+      "funeral_grant": "49",
+      "loss_of_support": "4",
+      "loss_of_income": "2",
+      "medical_cost_reimbursement": "4",
+      "other_reimbursement": "2",
+      "total_claims": "186"
+    },
+    {
+      "month": "Total",
+      "injury_grant": "1871",
+      "funeral_grant": "436",
+      "loss_of_support": "86",
+      "loss_of_income": "58",
+      "medical_cost_reimbursement": "28",
+      "other_reimbursement": "5",
+      "total_claims": "2484"
+    }
+  ],
+  "29_claims_per_service_centre.csv": [
+    {
+      "service_centre": "Katima Mulilo",
+      "claims": "103",
+      "case_coordinators": "2",
+      "average_per_cc": "52"
+    },
+    {
+      "service_centre": "Keetmanshoop",
+      "claims": "100",
+      "case_coordinators": "2",
+      "average_per_cc": "50"
+    },
+    {
+      "service_centre": "Ongwediva",
+      "claims": "691",
+      "case_coordinators": "4",
+      "average_per_cc": "173"
+    },
+    {
+      "service_centre": "Otavi",
+      "claims": "69",
+      "case_coordinators": "1",
+      "average_per_cc": "69"
+    },
+    {
+      "service_centre": "Otjiwarongo",
+      "claims": "130",
+      "case_coordinators": "1",
+      "average_per_cc": "130"
+    },
+    {
+      "service_centre": "Rundu",
+      "claims": "209",
+      "case_coordinators": "2",
+      "average_per_cc": "105"
+    },
+    {
+      "service_centre": "Walvisbay",
+      "claims": "200",
+      "case_coordinators": "1",
+      "average_per_cc": "200"
+    },
+    {
+      "service_centre": "Windhoek",
+      "claims": "982",
+      "case_coordinators": "4",
+      "average_per_cc": "246"
+    }
+  ],
+  "30_repudiated_claims.csv": [
+    {
+      "reason": "Exclusion",
+      "count": "46",
+      "pct_of_repudiated": "58",
+      "pct_of_total_claims": "1.85"
+    },
+    {
+      "reason": "Limitation",
+      "count": "18",
+      "pct_of_repudiated": "23",
+      "pct_of_total_claims": "0.72"
+    },
+    {
+      "reason": "Not an MVA Case",
+      "count": "15",
+      "pct_of_repudiated": "19",
+      "pct_of_total_claims": "0.60"
+    },
+    {
+      "reason": "Total Repudiated",
+      "count": "79",
+      "pct_of_repudiated": "100",
+      "pct_of_total_claims": "3.18"
+    },
+    {
+      "reason": "Total Claims",
+      "count": "2484",
+      "pct_of_repudiated": "",
+      "pct_of_total_claims": ""
+    }
+  ],
+  "31_medical_claims_count.csv": [
+    {
+      "month": "January",
+      "count_2020": "1745",
+      "count_2021": "1214",
+      "count_2022": "2386",
+      "count_2023": "1073",
+      "count_2024": "1566"
+    },
+    {
+      "month": "February",
+      "count_2020": "2028",
+      "count_2021": "1824",
+      "count_2022": "2238",
+      "count_2023": "2122",
+      "count_2024": "2031"
+    },
+    {
+      "month": "March",
+      "count_2020": "1378",
+      "count_2021": "1995",
+      "count_2022": "2237",
+      "count_2023": "2374",
+      "count_2024": "2282"
+    },
+    {
+      "month": "April",
+      "count_2020": "837",
+      "count_2021": "1914",
+      "count_2022": "2335",
+      "count_2023": "1916",
+      "count_2024": "1964"
+    },
+    {
+      "month": "May",
+      "count_2020": "985",
+      "count_2021": "1279",
+      "count_2022": "1604",
+      "count_2023": "1756",
+      "count_2024": "1791"
+    },
+    {
+      "month": "June",
+      "count_2020": "1469",
+      "count_2021": "1533",
+      "count_2022": "1253",
+      "count_2023": "2346",
+      "count_2024": "1126"
+    },
+    {
+      "month": "July",
+      "count_2020": "1847",
+      "count_2021": "2272",
+      "count_2022": "1633",
+      "count_2023": "1550",
+      "count_2024": "2691"
+    },
+    {
+      "month": "August",
+      "count_2020": "1707",
+      "count_2021": "2385",
+      "count_2022": "2944",
+      "count_2023": "2304",
+      "count_2024": "3499"
+    },
+    {
+      "month": "September",
+      "count_2020": "1932",
+      "count_2021": "1766",
+      "count_2022": "3834",
+      "count_2023": "1711",
+      "count_2024": "2083"
+    },
+    {
+      "month": "October",
+      "count_2020": "1497",
+      "count_2021": "1840",
+      "count_2022": "3107",
+      "count_2023": "1473",
+      "count_2024": "2219"
+    },
+    {
+      "month": "November",
+      "count_2020": "1478",
+      "count_2021": "1593",
+      "count_2022": "1449",
+      "count_2023": "3645",
+      "count_2024": "2019"
+    },
+    {
+      "month": "December",
+      "count_2020": "1205",
+      "count_2021": "1617",
+      "count_2022": "1404",
+      "count_2023": "1228",
+      "count_2024": "1962"
+    },
+    {
+      "month": "Total",
+      "count_2020": "18108",
+      "count_2021": "21232",
+      "count_2022": "26424",
+      "count_2023": "23498",
+      "count_2024": "25233"
+    }
+  ],
+  "32_medical_claims_expenses.csv": [
+    {
+      "month": "January",
+      "expenses_2020": "13800358",
+      "expenses_2021": "7489442.52",
+      "expenses_2022": "22646910.15",
+      "expenses_2023": "18115677.32",
+      "expenses_2024": "14563522.99"
+    },
+    {
+      "month": "February",
+      "expenses_2020": "17492441",
+      "expenses_2021": "12681475.01",
+      "expenses_2022": "15414311.75",
+      "expenses_2023": "21345216.18",
+      "expenses_2024": "13297766.85"
+    },
+    {
+      "month": "March",
+      "expenses_2020": "8821153",
+      "expenses_2021": "8243017.46",
+      "expenses_2022": "20207674.66",
+      "expenses_2023": "19175543.85",
+      "expenses_2024": "15716205.41"
+    },
+    {
+      "month": "April",
+      "expenses_2020": "10499316",
+      "expenses_2021": "12901916.57",
+      "expenses_2022": "15052679.05",
+      "expenses_2023": "20096621.92",
+      "expenses_2024": "10521443.93"
+    },
+    {
+      "month": "May",
+      "expenses_2020": "7813206",
+      "expenses_2021": "9977710.61",
+      "expenses_2022": "12734372.08",
+      "expenses_2023": "13258144.65",
+      "expenses_2024": "18545933.76"
+    },
+    {
+      "month": "June",
+      "expenses_2020": "10875617",
+      "expenses_2021": "16544167.66",
+      "expenses_2022": "10872813.53",
+      "expenses_2023": "14016145.17",
+      "expenses_2024": "6184961.04"
+    },
+    {
+      "month": "July",
+      "expenses_2020": "11695312",
+      "expenses_2021": "21950636.93",
+      "expenses_2022": "18562552.63",
+      "expenses_2023": "15729145.06",
+      "expenses_2024": "18498406.66"
+    },
+    {
+      "month": "August",
+      "expenses_2020": "14939709",
+      "expenses_2021": "15336434.00",
+      "expenses_2022": "19849544.32",
+      "expenses_2023": "16809569.62",
+      "expenses_2024": "29816801.42"
+    },
+    {
+      "month": "September",
+      "expenses_2020": "13848510",
+      "expenses_2021": "15001059.04",
+      "expenses_2022": "36666042.73",
+      "expenses_2023": "16362993.35",
+      "expenses_2024": "13431132.64"
+    },
+    {
+      "month": "October",
+      "expenses_2020": "10466380",
+      "expenses_2021": "14916185.95",
+      "expenses_2022": "19015932.95",
+      "expenses_2023": "18376176.35",
+      "expenses_2024": "16897379.10"
+    },
+    {
+      "month": "November",
+      "expenses_2020": "13725589",
+      "expenses_2021": "15068584.06",
+      "expenses_2022": "18758508.53",
+      "expenses_2023": "17728541.95",
+      "expenses_2024": "16556739.66"
+    },
+    {
+      "month": "December",
+      "expenses_2020": "10260221",
+      "expenses_2021": "17268650.90",
+      "expenses_2022": "8918460.67",
+      "expenses_2023": "16310525.71",
+      "expenses_2024": "18989469.68"
+    },
+    {
+      "month": "Total",
+      "expenses_2020": "144237812",
+      "expenses_2021": "167379281",
+      "expenses_2022": "218699803.05",
+      "expenses_2023": "207324301.13",
+      "expenses_2024": "193019763.14"
+    }
+  ],
+  "33_registered_vehicles_per_town.csv": [
+    {
+      "town_ra": "Windhoek",
+      "heavy_load_equip_to_draw": "5457",
+      "heavy_load_not_to_draw": "4455",
+      "heavy_passenger_12plus": "2439",
+      "light_load_vehicle": "59550",
+      "light_passenger": "84323",
+      "motorcycle": "2424",
+      "special_vehicle": "2416",
+      "unknown": "7476",
+      "total": "168540"
+    },
+    {
+      "town_ra": "Oshakati",
+      "heavy_load_equip_to_draw": "421",
+      "heavy_load_not_to_draw": "376",
+      "heavy_passenger_12plus": "211",
+      "light_load_vehicle": "16345",
+      "light_passenger": "13861",
+      "motorcycle": "55",
+      "special_vehicle": "314",
+      "unknown": "1192",
+      "total": "32775"
+    },
+    {
+      "town_ra": "Walvis Bay",
+      "heavy_load_equip_to_draw": "1177",
+      "heavy_load_not_to_draw": "1494",
+      "heavy_passenger_12plus": "293",
+      "light_load_vehicle": "8140",
+      "light_passenger": "13400",
+      "motorcycle": "407",
+      "special_vehicle": "620",
+      "unknown": "517",
+      "total": "26048"
+    },
+    {
+      "town_ra": "Swakopmund",
+      "heavy_load_equip_to_draw": "481",
+      "heavy_load_not_to_draw": "431",
+      "heavy_passenger_12plus": "358",
+      "light_load_vehicle": "7893",
+      "light_passenger": "11537",
+      "motorcycle": "620",
+      "special_vehicle": "360",
+      "unknown": "806",
+      "total": "22486"
+    },
+    {
+      "town_ra": "Ondangwa",
+      "heavy_load_equip_to_draw": "160",
+      "heavy_load_not_to_draw": "194",
+      "heavy_passenger_12plus": "98",
+      "light_load_vehicle": "6664",
+      "light_passenger": "5356",
+      "motorcycle": "13",
+      "special_vehicle": "140",
+      "unknown": "647",
+      "total": "13272"
+    },
+    {
+      "town_ra": "Outapi",
+      "heavy_load_equip_to_draw": "71",
+      "heavy_load_not_to_draw": "76",
+      "heavy_passenger_12plus": "62",
+      "light_load_vehicle": "6973",
+      "light_passenger": "3713",
+      "motorcycle": "5",
+      "special_vehicle": "138",
+      "unknown": "458",
+      "total": "11496"
+    },
+    {
+      "town_ra": "Rundu",
+      "heavy_load_equip_to_draw": "132",
+      "heavy_load_not_to_draw": "132",
+      "heavy_passenger_12plus": "149",
+      "light_load_vehicle": "3796",
+      "light_passenger": "4902",
+      "motorcycle": "23",
+      "special_vehicle": "47",
+      "unknown": "921",
+      "total": "10102"
+    },
+    {
+      "town_ra": "Otjiwarongo",
+      "heavy_load_equip_to_draw": "316",
+      "heavy_load_not_to_draw": "358",
+      "heavy_passenger_12plus": "114",
+      "light_load_vehicle": "4608",
+      "light_passenger": "4111",
+      "motorcycle": "117",
+      "special_vehicle": "245",
+      "unknown": "230",
+      "total": "10099"
+    },
+    {
+      "town_ra": "Gobabis",
+      "heavy_load_equip_to_draw": "224",
+      "heavy_load_not_to_draw": "231",
+      "heavy_passenger_12plus": "61",
+      "light_load_vehicle": "5075",
+      "light_passenger": "2827",
+      "motorcycle": "79",
+      "special_vehicle": "248",
+      "unknown": "364",
+      "total": "9109"
+    },
+    {
+      "town_ra": "Okahandja",
+      "heavy_load_equip_to_draw": "256",
+      "heavy_load_not_to_draw": "438",
+      "heavy_passenger_12plus": "58",
+      "light_load_vehicle": "3468",
+      "light_passenger": "3529",
+      "motorcycle": "127",
+      "special_vehicle": "225",
+      "unknown": "321",
+      "total": "8422"
+    },
+    {
+      "town_ra": "Tsumeb",
+      "heavy_load_equip_to_draw": "210",
+      "heavy_load_not_to_draw": "291",
+      "heavy_passenger_12plus": "96",
+      "light_load_vehicle": "3484",
+      "light_passenger": "3110",
+      "motorcycle": "135",
+      "special_vehicle": "191",
+      "unknown": "216",
+      "total": "7733"
+    },
+    {
+      "town_ra": "Katima Mulilo",
+      "heavy_load_equip_to_draw": "80",
+      "heavy_load_not_to_draw": "56",
+      "heavy_passenger_12plus": "71",
+      "light_load_vehicle": "2607",
+      "light_passenger": "4391",
+      "motorcycle": "27",
+      "special_vehicle": "105",
+      "unknown": "196",
+      "total": "7533"
+    },
+    {
+      "town_ra": "Eenhana",
+      "heavy_load_equip_to_draw": "36",
+      "heavy_load_not_to_draw": "37",
+      "heavy_passenger_12plus": "44",
+      "light_load_vehicle": "4172",
+      "light_passenger": "2578",
+      "motorcycle": "5",
+      "special_vehicle": "51",
+      "unknown": "406",
+      "total": "7329"
+    },
+    {
+      "town_ra": "Keetmanshoop",
+      "heavy_load_equip_to_draw": "151",
+      "heavy_load_not_to_draw": "103",
+      "heavy_passenger_12plus": "73",
+      "light_load_vehicle": "3690",
+      "light_passenger": "2896",
+      "motorcycle": "111",
+      "special_vehicle": "90",
+      "unknown": "202",
+      "total": "7316"
+    },
+    {
+      "town_ra": "Grootfontein",
+      "heavy_load_equip_to_draw": "137",
+      "heavy_load_not_to_draw": "131",
+      "heavy_passenger_12plus": "30",
+      "light_load_vehicle": "3000",
+      "light_passenger": "2619",
+      "motorcycle": "63",
+      "special_vehicle": "130",
+      "unknown": "148",
+      "total": "6258"
+    },
+    {
+      "town_ra": "Rehoboth",
+      "heavy_load_equip_to_draw": "30",
+      "heavy_load_not_to_draw": "29",
+      "heavy_passenger_12plus": "85",
+      "light_load_vehicle": "2726",
+      "light_passenger": "3039",
+      "motorcycle": "41",
+      "special_vehicle": "28",
+      "unknown": "252",
+      "total": "6230"
+    },
+    {
+      "town_ra": "Mariental",
+      "heavy_load_equip_to_draw": "217",
+      "heavy_load_not_to_draw": "218",
+      "heavy_passenger_12plus": "35",
+      "light_load_vehicle": "3305",
+      "light_passenger": "1931",
+      "motorcycle": "58",
+      "special_vehicle": "199",
+      "unknown": "167",
+      "total": "6130"
+    },
+    {
+      "town_ra": "GRA",
+      "heavy_load_equip_to_draw": "91",
+      "heavy_load_not_to_draw": "57",
+      "heavy_passenger_12plus": "254",
+      "light_load_vehicle": "2893",
+      "light_passenger": "1379",
+      "motorcycle": "83",
+      "special_vehicle": "296",
+      "unknown": "42",
+      "total": "5095"
+    },
+    {
+      "town_ra": "Opuwo",
+      "heavy_load_equip_to_draw": "44",
+      "heavy_load_not_to_draw": "22",
+      "heavy_passenger_12plus": "56",
+      "light_load_vehicle": "2424",
+      "light_passenger": "1413",
+      "motorcycle": "14",
+      "special_vehicle": "18",
+      "unknown": "131",
+      "total": "4122"
+    },
+    {
+      "town_ra": "Outjo",
+      "heavy_load_equip_to_draw": "187",
+      "heavy_load_not_to_draw": "183",
+      "heavy_passenger_12plus": "35",
+      "light_load_vehicle": "2009",
+      "light_passenger": "1419",
+      "motorcycle": "44",
+      "special_vehicle": "90",
+      "unknown": "138",
+      "total": "4105"
+    },
+    {
+      "town_ra": "Oranjemund",
+      "heavy_load_equip_to_draw": "55",
+      "heavy_load_not_to_draw": "50",
+      "heavy_passenger_12plus": "60",
+      "light_load_vehicle": "1664",
+      "light_passenger": "1646",
+      "motorcycle": "69",
+      "special_vehicle": "92",
+      "unknown": "93",
+      "total": "3729"
+    },
+    {
+      "town_ra": "Luderitz",
+      "heavy_load_equip_to_draw": "110",
+      "heavy_load_not_to_draw": "165",
+      "heavy_passenger_12plus": "43",
+      "light_load_vehicle": "1011",
+      "light_passenger": "1321",
+      "motorcycle": "43",
+      "special_vehicle": "36",
+      "unknown": "43",
+      "total": "2772"
+    },
+    {
+      "town_ra": "Karibib",
+      "heavy_load_equip_to_draw": "35",
+      "heavy_load_not_to_draw": "27",
+      "heavy_passenger_12plus": "31",
+      "light_load_vehicle": "1285",
+      "light_passenger": "1164",
+      "motorcycle": "36",
+      "special_vehicle": "34",
+      "unknown": "88",
+      "total": "2700"
+    },
+    {
+      "town_ra": "Karasburg",
+      "heavy_load_equip_to_draw": "126",
+      "heavy_load_not_to_draw": "152",
+      "heavy_passenger_12plus": "71",
+      "light_load_vehicle": "1351",
+      "light_passenger": "807",
+      "motorcycle": "29",
+      "special_vehicle": "36",
+      "unknown": "72",
+      "total": "2644"
+    },
+    {
+      "town_ra": "Helao Nafidi RA",
+      "heavy_load_equip_to_draw": "18",
+      "heavy_load_not_to_draw": "11",
+      "heavy_passenger_12plus": "22",
+      "light_load_vehicle": "1105",
+      "light_passenger": "1156",
+      "motorcycle": "0",
+      "special_vehicle": "16",
+      "unknown": "115",
+      "total": "2443"
+    },
+    {
+      "town_ra": "Omaruru",
+      "heavy_load_equip_to_draw": "84",
+      "heavy_load_not_to_draw": "69",
+      "heavy_passenger_12plus": "15",
+      "light_load_vehicle": "1158",
+      "light_passenger": "913",
+      "motorcycle": "47",
+      "special_vehicle": "44",
+      "unknown": "57",
+      "total": "2387"
+    },
+    {
+      "town_ra": "Omuthiya RA",
+      "heavy_load_equip_to_draw": "11",
+      "heavy_load_not_to_draw": "3",
+      "heavy_passenger_12plus": "7",
+      "light_load_vehicle": "1193",
+      "light_passenger": "688",
+      "motorcycle": "1",
+      "special_vehicle": "16",
+      "unknown": "119",
+      "total": "2038"
+    },
+    {
+      "town_ra": "Nkurenkuru",
+      "heavy_load_equip_to_draw": "12",
+      "heavy_load_not_to_draw": "22",
+      "heavy_passenger_12plus": "15",
+      "light_load_vehicle": "827",
+      "light_passenger": "903",
+      "motorcycle": "7",
+      "special_vehicle": "19",
+      "unknown": "156",
+      "total": "1961"
+    },
+    {
+      "town_ra": "Henties Bay RA",
+      "heavy_load_equip_to_draw": "19",
+      "heavy_load_not_to_draw": "11",
+      "heavy_passenger_12plus": "4",
+      "light_load_vehicle": "685",
+      "light_passenger": "725",
+      "motorcycle": "37",
+      "special_vehicle": "35",
+      "unknown": "67",
+      "total": "1583"
+    },
+    {
+      "town_ra": "Ruacana",
+      "heavy_load_equip_to_draw": "14",
+      "heavy_load_not_to_draw": "6",
+      "heavy_passenger_12plus": "8",
+      "light_load_vehicle": "801",
+      "light_passenger": "518",
+      "motorcycle": "11",
+      "special_vehicle": "20",
+      "unknown": "62",
+      "total": "1440"
+    },
+    {
+      "town_ra": "Divundu RA",
+      "heavy_load_equip_to_draw": "7",
+      "heavy_load_not_to_draw": "12",
+      "heavy_passenger_12plus": "9",
+      "light_load_vehicle": "549",
+      "light_passenger": "676",
+      "motorcycle": "1",
+      "special_vehicle": "4",
+      "unknown": "120",
+      "total": "1378"
+    },
+    {
+      "town_ra": "Okahao RA",
+      "heavy_load_equip_to_draw": "22",
+      "heavy_load_not_to_draw": "19",
+      "heavy_passenger_12plus": "6",
+      "light_load_vehicle": "809",
+      "light_passenger": "384",
+      "motorcycle": "2",
+      "special_vehicle": "39",
+      "unknown": "59",
+      "total": "1340"
+    },
+    {
+      "town_ra": "Aranos",
+      "heavy_load_equip_to_draw": "32",
+      "heavy_load_not_to_draw": "14",
+      "heavy_passenger_12plus": "4",
+      "light_load_vehicle": "737",
+      "light_passenger": "353",
+      "motorcycle": "18",
+      "special_vehicle": "26",
+      "unknown": "40",
+      "total": "1224"
+    },
+    {
+      "town_ra": "Okongo RA",
+      "heavy_load_equip_to_draw": "6",
+      "heavy_load_not_to_draw": "6",
+      "heavy_passenger_12plus": "4",
+      "light_load_vehicle": "759",
+      "light_passenger": "313",
+      "motorcycle": "0",
+      "special_vehicle": "12",
+      "unknown": "55",
+      "total": "1155"
+    },
+    {
+      "town_ra": "Okakarara",
+      "heavy_load_equip_to_draw": "19",
+      "heavy_load_not_to_draw": "30",
+      "heavy_passenger_12plus": "4",
+      "light_load_vehicle": "612",
+      "light_passenger": "341",
+      "motorcycle": "2",
+      "special_vehicle": "15",
+      "unknown": "40",
+      "total": "1063"
+    },
+    {
+      "town_ra": "Otavi",
+      "heavy_load_equip_to_draw": "56",
+      "heavy_load_not_to_draw": "89",
+      "heavy_passenger_12plus": "2",
+      "light_load_vehicle": "409",
+      "light_passenger": "300",
+      "motorcycle": "9",
+      "special_vehicle": "41",
+      "unknown": "24",
+      "total": "930"
+    },
+    {
+      "town_ra": "Arandis RA",
+      "heavy_load_equip_to_draw": "2",
+      "heavy_load_not_to_draw": "2",
+      "heavy_passenger_12plus": "7",
+      "light_load_vehicle": "370",
+      "light_passenger": "414",
+      "motorcycle": "3",
+      "special_vehicle": "2",
+      "unknown": "36",
+      "total": "836"
+    },
+    {
+      "town_ra": "Khorixas",
+      "heavy_load_equip_to_draw": "1",
+      "heavy_load_not_to_draw": "0",
+      "heavy_passenger_12plus": "3",
+      "light_load_vehicle": "455",
+      "light_passenger": "321",
+      "motorcycle": "1",
+      "special_vehicle": "5",
+      "unknown": "37",
+      "total": "823"
+    },
+    {
+      "town_ra": "Maltahohe",
+      "heavy_load_equip_to_draw": "11",
+      "heavy_load_not_to_draw": "10",
+      "heavy_passenger_12plus": "7",
+      "light_load_vehicle": "322",
+      "light_passenger": "156",
+      "motorcycle": "5",
+      "special_vehicle": "10",
+      "unknown": "16",
+      "total": "537"
+    },
+    {
+      "town_ra": "Usakos",
+      "heavy_load_equip_to_draw": "14",
+      "heavy_load_not_to_draw": "6",
+      "heavy_passenger_12plus": "5",
+      "light_load_vehicle": "196",
+      "light_passenger": "136",
+      "motorcycle": "5",
+      "special_vehicle": "10",
+      "unknown": "20",
+      "total": "392"
+    },
+    {
+      "town_ra": "Otjinene",
+      "heavy_load_equip_to_draw": "3",
+      "heavy_load_not_to_draw": "0",
+      "heavy_passenger_12plus": "4",
+      "light_load_vehicle": "264",
+      "light_passenger": "61",
+      "motorcycle": "1",
+      "special_vehicle": "1",
+      "unknown": "19",
+      "total": "353"
+    },
+    {
+      "town_ra": "NPS",
+      "heavy_load_equip_to_draw": "9",
+      "heavy_load_not_to_draw": "7",
+      "heavy_passenger_12plus": "23",
+      "light_load_vehicle": "133",
+      "light_passenger": "78",
+      "motorcycle": "4",
+      "special_vehicle": "0",
+      "unknown": "0",
+      "total": "254"
+    },
+    {
+      "town_ra": "Bethanie",
+      "heavy_load_equip_to_draw": "6",
+      "heavy_load_not_to_draw": "3",
+      "heavy_passenger_12plus": "2",
+      "light_load_vehicle": "147",
+      "light_passenger": "55",
+      "motorcycle": "4",
+      "special_vehicle": "6",
+      "unknown": "2",
+      "total": "225"
+    },
+    {
+      "town_ra": "Bukalo RA",
+      "heavy_load_equip_to_draw": "1",
+      "heavy_load_not_to_draw": "0",
+      "heavy_passenger_12plus": "0",
+      "light_load_vehicle": "61",
+      "light_passenger": "103",
+      "motorcycle": "0",
+      "special_vehicle": "2",
+      "unknown": "6",
+      "total": "173"
+    },
+    {
+      "town_ra": "RA Judiciary",
+      "heavy_load_equip_to_draw": "0",
+      "heavy_load_not_to_draw": "0",
+      "heavy_passenger_12plus": "6",
+      "light_load_vehicle": "46",
+      "light_passenger": "54",
+      "motorcycle": "0",
+      "special_vehicle": "0",
+      "unknown": "0",
+      "total": "106"
+    },
+    {
+      "town_ra": "Tsumkwe RA",
+      "heavy_load_equip_to_draw": "0",
+      "heavy_load_not_to_draw": "0",
+      "heavy_passenger_12plus": "0",
+      "light_load_vehicle": "10",
+      "light_passenger": "6",
+      "motorcycle": "0",
+      "special_vehicle": "0",
+      "unknown": "1",
+      "total": "17"
+    },
+    {
+      "town_ra": "Ex-Presidential",
+      "heavy_load_equip_to_draw": "0",
+      "heavy_load_not_to_draw": "0",
+      "heavy_passenger_12plus": "0",
+      "light_load_vehicle": "0",
+      "light_passenger": "2",
+      "motorcycle": "0",
+      "special_vehicle": "0",
+      "unknown": "0",
+      "total": "2"
+    },
+    {
+      "town_ra": "Total",
+      "heavy_load_equip_to_draw": "10551",
+      "heavy_load_not_to_draw": "10026",
+      "heavy_passenger_12plus": "4984",
+      "light_load_vehicle": "169781",
+      "light_passenger": "185928",
+      "motorcycle": "4786",
+      "special_vehicle": "6472",
+      "unknown": "16177",
+      "total": "408705"
+    }
+  ]
+}

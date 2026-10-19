@@ -1,0 +1,10 @@
+category,type,count_2024,count_2023
+sex,Male,3395,3157
+sex,Female,2042,1892
+sex,Unknown,13,384
+road_user,Cyclist,56,67
+road_user,Driver,1261,1131
+road_user,Motor Cyclist,41,69
+road_user,Passenger,2582,2803
+road_user,Pedestrian,963,870
+road_user,Other/Unknown,530,396

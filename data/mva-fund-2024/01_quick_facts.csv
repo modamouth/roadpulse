@@ -1,0 +1,6 @@
+year,crashes,fatalities,injuries,casualties,mva_fund_claims,vehicle_population,namibia_population,fatalities_per_10000_vehicles,fatalities_per_100000_persons,injuries_per_10000_vehicles,injuries_per_100000_persons,casualties_per_10000_vehicles,casualties_per_100000_persons,fatalities_per_crash,injuries_per_crash,casualties_per_crash,crashes_for_1_fatality
+2020,2816,467,5069,5536,2426,403955,2504498,11.6,18.6,125.5,202.4,137,221,0.2,1.8,2,6
+2021,3111,553,5446,5999,2741,401715,2550226,13.8,21.7,135.6,213.5,149.3,235.2,0.2,1.8,1.9,5.6
+2022,3122,471,5344,5815,2582,403839,2596037,11.7,18.1,132.3,205.9,144.0,224.0,0.2,1.7,1.9,6.6
+2023,3067,428,5433,5861,2337,408705,3022401,10.5,14.2,129.7,179.8,139.9,193.9,0.1,1.8,1.9,7.2
+2024,3194,446,5450,5896,2484,418836,3022401,10.6,14.8,130.1,180.3,140.8,195.1,0.1,1.7,1.8,7.2

@@ -1,0 +1,11 @@
+metric,count_2024,count_2023
+pedestrian_injuries_total,964,944
+pedestrian_fatalities_total,142,158
+pedestrian_injuries_male,612,564
+pedestrian_injuries_female,351,342
+pedestrian_fatalities_male,113,126
+pedestrian_fatalities_female,29,32
+pedestrian_fatalities_at_crash_scene,100,98
+pedestrian_fatalities_at_hospital,29,41
+pedestrian_fatalities_in_ambulance,0,3
+pedestrian_fatalities_unknown,13,16

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoadPulse Namibia</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="sb-header">
+        <div class="sb-eyebrow">ROADPULSE NAMIBIA</div>
+        <h1 class="sb-title">Road Accident Dashboard</h1>
+        <div class="sb-sub">Regional crash statistics from the MVA Fund, layered with individual incident reports as they're collected.</div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-section-title">Year</div>
+        <div class="seg" id="yearSeg">
+          <button data-year="2024" class="active">2024</button>
+          <button data-year="2023">2023</button>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-section-title">Layers</div>
+        <div class="layer-row">
+          <div class="layer-label"><span class="swatch region"></span>Regional severity</div>
+          <button class="toggle on" id="toggleRegions"></button>
+        </div>
+        <select class="metric-select" id="metricSelect">
+          <option value="fatalities">Fatalities</option>
+          <option value="crashes">Crashes</option>
+          <option value="injuries">Injuries</option>
+          <option value="casualties_per_100000">Casualties per 100,000 people</option>
+        </select>
+        <div class="layer-row" style="margin-top:14px;">
+          <div class="layer-label"><span class="swatch incident"></span>Incident reports</div>
+          <button class="toggle on" id="toggleIncidents"></button>
+        </div>
+      </div>
+
+      <div class="sb-section" id="kpiSection">
+        <div class="sb-section-title">National totals — <span id="kpiYear">2024</span></div>
+        <div class="kpi-grid">
+          <div class="kpi-tile"><div class="kpi-label">Crashes</div><div class="kpi-value" id="kpiCrashes">—</div></div>
+          <div class="kpi-tile"><div class="kpi-label">Fatalities</div><div class="kpi-value" id="kpiFatalities">—</div></div>
+          <div class="kpi-tile"><div class="kpi-label">Injuries</div><div class="kpi-value" id="kpiInjuries">—</div></div>
+          <div class="kpi-tile"><div class="kpi-label">Crashes / fatality</div><div class="kpi-value" id="kpiRatio">—</div></div>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-section-title">Severity legend</div>
+        <div class="legend-ramp"></div>
+        <div class="legend-labels"><span id="legMin">low</span><span id="legMax">high</span></div>
+        <div class="chart-caption">Circle size and color both scale with the selected metric. Markers sit at regional centroids — not precise crash locations.</div>
+      </div>
+
+      <div class="source-note">
+        Regional data: MVA Fund <i>Road Crash &amp; Claims Report</i>. Incident-report layer shows individually sourced reports as the extraction pipeline comes online. Map tiles © OpenStreetMap contributors.
+      </div>
+    </aside>
+
+    <div id="mapWrap">
+      <button class="mobile-toggle" id="mobileToggle">☰ Dashboard</button>
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

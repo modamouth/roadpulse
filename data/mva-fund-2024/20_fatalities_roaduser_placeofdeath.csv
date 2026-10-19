@@ -1,0 +1,11 @@
+category,type,count_2024,count_2023
+road_user,Cyclist,6,9
+road_user,Driver,97,86
+road_user,Motor Cyclist,7,1
+road_user,Passenger,189,164
+road_user,Pedestrian,144,161
+road_user,Other/Unknown,0,7
+place_of_death,At Crash Scene,300,284
+place_of_death,At Hospital,100,104
+place_of_death,In Ambulance,5,9
+place_of_death,Unknown,38,31
