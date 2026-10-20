@@ -159,12 +159,21 @@ RLS policies (full SQL in `backend/src/db/schema.sql`):
 | `fetchRegions(year)` | `SELECT` on `regional_stats` |
 | `fetchIncidents()` | `SELECT` on `incidents` (RLS limits this to verified rows regardless of the query) |
 | `submitIncident(report)` | `INSERT` on `incidents`, forced to `entry_type: 'crowdsourced', verified: false, needs_review: true` |
-| `fetchReviewQueue()` | `SELECT` on `incidents` — only returns rows if the signed-in user is a moderator |
-| `setIncidentVerified(id, verified)` | `UPDATE` on `incidents` — only succeeds if the signed-in user is a moderator |
+| `fetchModerationList(status, entryType?)` / `fetchModerationCounts(entryType?)` | `SELECT` on `incidents` by moderation state (pending / approved / rejected) — pending and rejected rows only come back for a moderator |
+| `setIncidentLocation(id, lat, lng, note)` | `set_incident_location()` RPC — moderator-only map pin for pending or approved rows; sets `geocode_method = 'manual_pin'` and appends the required note (+ who, + any replaced coordinate) to `confidence_notes` |
+| `reopenIncident(id, note)` | `reopen_incident()` RPC — moderator-only; sends an approved/rejected row back to pending (an approved one leaves the public map at once). Reason required; the previous decision is appended to `confidence_notes` before the review columns are cleared |
+| `fetchReviewerEmails(ids)` | `reviewer_emails()` RPC — moderator-only; resolves `reviewed_by` ids that actually reviewed something |
+| `reviewIncident(id, approve, note?)` | `review_incident()` RPC — moderator-only; sets `verified`, clears `needs_review`, records `reviewed_by`/`reviewed_at`/`review_note`. There is no `UPDATE` policy on `incidents`, so this is the only client write path after insert. |
 
-`submitIncident`/`fetchReviewQueue`/`setIncidentVerified` exist in the
-client but aren't wired into any UI yet — crowdsourced submission and the
-moderation screen are still open (see CLAUDE.md).
+Moderation states: pending (`needs_review = true`), approved
+(`verified = true`), rejected (`verified = false, needs_review = false` —
+kept for the record, never shown publicly).
+
+The moderator review UI is `frontend/admin.html` (`src/admin.ts`):
+magic-link sign-in for invited accounts only (`src/api/auth.ts`), the
+pending queue with location derivation and extraction flags, and
+approve/reject. `submitIncident` exists in the client but no public
+submission form calls it yet.
 
 ## Remaining server endpoint
 
@@ -200,6 +209,8 @@ prototype's rendering logic is a reasonable starting point.
 - Moderator promotion (`profiles.role = 'moderator'`) is a manual DB edit,
   not a UI flow — fine while the moderator team is small, revisit if it
   grows.
-- Crowdsourced submission and the moderation screen have client functions
-  (`submitIncident`, `fetchReviewQueue`, `setIncidentVerified`) but no UI
-  calling them yet.
+- Crowdsourced submission has a client function (`submitIncident`) but no
+  public form calling it yet.
+- Moderators can approve/reject but not correct an incident's fields (e.g.
+  fix a coordinate) — add a column-scoped function for that if needed, not
+  a blanket `UPDATE` policy.

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>RoadPulse Review</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <link rel="stylesheet" href="/src/admin.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar" class="review-sidebar">
+      <div class="sb-header">
+        <div class="sb-eyebrow">ROADPULSE NAMIBIA · MODERATION</div>
+        <h1 class="sb-title">Incident review</h1>
+        <div class="sb-sub">Nothing reaches the public map until a moderator approves it. Check the location derivation and the extraction flags before approving.</div>
+      </div>
+
+      <div class="sb-section" id="authPanel">
+        <form id="signInForm" hidden>
+          <label class="field-label" for="email">Moderator email</label>
+          <input class="text-input" id="email" type="email" autocomplete="username" required />
+          <label class="field-label" for="password" style="margin-top:12px;">Password</label>
+          <input class="text-input" id="password" type="password" autocomplete="current-password" />
+          <button class="btn primary full" type="submit">Sign in</button>
+          <button class="btn ghost full" id="magicLinkBtn" type="button">No password? Email me a sign-in link</button>
+          <div class="hint">Accounts are invite-only — an admin creates them in the Supabase dashboard.</div>
+        </form>
+        <div id="signedIn" hidden>
+          <div class="signed-in-row">
+            <span>Signed in as <b id="userEmail"></b></span>
+            <button class="btn ghost" id="signOutBtn" type="button">Sign out</button>
+          </div>
+        </div>
+        <div class="status" id="status" role="status"></div>
+      </div>
+
+      <div class="sb-section" id="queueSection" hidden>
+        <div class="seg" id="statusTabs">
+          <button data-status="pending" class="active" type="button">Pending <span class="count" data-count="pending">·</span></button>
+          <button data-status="approved" type="button">Approved <span class="count" data-count="approved">·</span></button>
+          <button data-status="rejected" type="button">Rejected <span class="count" data-count="rejected">·</span></button>
+        </div>
+        <select class="metric-select" id="entryFilter" aria-label="Filter by source">
+          <option value="">All sources</option>
+          <option value="historical_extracted">Extracted (news / reports)</option>
+          <option value="crowdsourced">Public submissions</option>
+          <option value="official">Official</option>
+        </select>
+        <div class="pin-banner" id="pinBanner" hidden></div>
+        <div id="queue"></div>
+      </div>
+
+      <div class="source-note"><a href="/">← Public map</a></div>
+    </aside>
+
+    <div id="mapWrap">
+      <button class="mobile-toggle" id="mobileToggle">☰ Queue</button>
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/admin.ts"></script>
+</body>
+</html>

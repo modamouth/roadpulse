@@ -13,7 +13,8 @@
     "build:frontend": "npm run build --workspace frontend",
     "build:backend": "npm run build --workspace backend",
     "db:migrate": "npm run db:migrate --workspace backend",
-    "db:seed": "npm run db:seed --workspace backend"
+    "db:seed": "npm run db:seed --workspace backend",
+    "db:import": "npm run db:import --workspace backend --"
   },
   "engines": {
     "node": ">=22"

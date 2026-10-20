@@ -75,9 +75,12 @@ considered and rejected; don't re-propose them without a new reason.
    usage policy before a public launch.
    `frontend/src/api/client.ts` fetches `regional_stats`/`incidents` from
    Supabase via `frontend/src/api/supabase.ts` (needs `VITE_SUPABASE_URL`/
-   `VITE_SUPABASE_ANON_KEY` in `frontend/.env`). `submitIncident`,
-   `fetchReviewQueue`, `setIncidentVerified` exist in `client.ts` but
-   nothing in the UI calls them yet — see steps 4/5 below.
+   `VITE_SUPABASE_ANON_KEY` in `frontend/.env`). Popups escape every
+   database field (`src/lib/html.ts`) — approved crowdsourced reports are
+   user-written, so never interpolate raw incident text into HTML.
+   `submitIncident` exists in `client.ts` but no public submission form
+   calls it yet — that's the next frontend piece now that public
+   submission is in scope for v1.
 
 3. **Geocoding helper.** Implement real linear referencing (point N km along
    an actual road, using OSM way geometry from Overpass API) to replace the
@@ -94,17 +97,35 @@ considered and rejected; don't re-propose them without a new reason.
    n8n is the intended orchestration tool (user already runs n8n for other
    projects) — see `pipelines/n8n/README.md`.
 
+   **Manual sources already work:** `npm run db:import -- <file.json>
+   [--dry-run]` loads a JSON array of incidents (same shape as
+   `data/sample-incidents.json`) into the review queue. It shares
+   validation + insert with `POST /api/pipeline/ingest`
+   (`backend/src/db/ingest.ts`): explicit `null`s and timezone offsets are
+   fine, `is_synthetic` is carried through, a record claiming
+   `verified: true` is refused, everything lands pending, the whole file is
+   all-or-nothing, and records matching an existing incident (same
+   `occurred_at` + `road` + `entry_type`) are skipped. First real batch:
+   `data/incidents-q2-2025-media-report.json` (3 incidents from the MVA
+   Fund Media Intelligence Report Q2 2025/26).
+
 5. **Moderation / review UI.** Nothing in `incidents` should go live on the
    public map without either (a) coming from the official MVA Fund aggregate
-   data, or (b) being marked `verified` by a human reviewer. This is now
-   enforced at the database level (RLS policies in `schema.sql` — a
-   non-moderator's `fetchReviewQueue()`/`setIncidentVerified()` call simply
-   returns nothing / fails), so the UI itself can be minimal: it needs
-   Supabase Auth sign-in, then a view that calls `fetchReviewQueue()` and
-   `setIncidentVerified()` (both already in `frontend/src/api/client.ts`).
-   Promoting a user to moderator is still a manual
-   `UPDATE profiles SET role = 'moderator'` — no self-serve flow, see
-   `docs/ARCHITECTURE.md`.
+   data, or (b) being marked `verified` by a human reviewer. — **built.**
+   `frontend/admin.html` (`src/admin.ts`): password or magic-link sign-in;
+   Pending / Approved / Rejected tabs with counts and a source filter;
+   cards show location derivation + extraction flags; approve/reject with
+   an optional note; a "Set location" map pin (`set_incident_location()`,
+   pending or approved rows, note required and appended to
+   `confidence_notes`); "Send back to pending" for approved/rejected rows
+   (`reopen_incident()`, reason required, previous decision preserved in
+   `confidence_notes`). Enforced in the database:
+   no `UPDATE` policy on `incidents`; the only write path is the
+   moderator-only `review_incident()` function, which also records
+   `reviewed_by`/`reviewed_at`/`review_note` and refuses already-reviewed
+   rows. Accounts are invite-only (dashboard → Authentication → Invite;
+   the form uses `shouldCreateUser: false`), and promotion to moderator is
+   still a manual `UPDATE profiles SET role = 'moderator'`.
 
 ## Conventions
 
@@ -127,9 +148,9 @@ considered and rejected; don't re-propose them without a new reason.
 - ~~Which Postgres hosting~~ — **settled: managed Supabase, independent of
   the user's Odoo Online / n8n Cloud setup.** See `docs/DECISIONS.md`.
   Provisioned in eu-west-1 (Ireland) and kept there.
-- Facebook/news scraping legality and access — Meta's Graph API has real
-  restrictions on page scraping; confirm the intended approach before
-  building it.
-- Whether crowdsourced public submission is in scope yet, or whether v1 is
-  read-only (regional stats + extracted historical incidents) with
-  submission added later.
+- ~~Facebook/news scraping~~ — **settled: manual entry + scraping Namibian
+  news sites.** Not Facebook (Graph API page-content restrictions). Still
+  check each site's terms/robots.txt before scraping it.
+- ~~Crowdsourced public submission in v1?~~ — **settled: yes.** Public
+  reports land via `submitIncident()` as `crowdsourced`, unverified, in the
+  moderation queue.

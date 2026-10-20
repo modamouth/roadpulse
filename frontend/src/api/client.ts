@@ -114,27 +114,100 @@ export async function submitIncident(report: IncidentSubmission): Promise<void> 
 }
 
 // --- Moderation (requires a signed-in user with profiles.role =
-// 'moderator' — see schema.sql). Not wired into any UI yet; this is
-// the client-side half of CLAUDE.md step 5. Calling these while signed
-// out, or signed in as a non-moderator, will come back empty / error
-// out under RLS rather than leaking review-queue data.
+// 'moderator' — see schema.sql). Used by the review UI (admin.html).
+// Calling these while signed out, or signed in as a non-moderator, comes
+// back empty / errors out under RLS rather than leaking review-queue data.
 
-export async function fetchReviewQueue(): Promise<Incident[]> {
-  const { data, error } = await supabase
-    .from('incidents')
-    .select('*')
-    .eq('verified', false)
-    .order('created_at', { ascending: false });
+export type ReviewItem = Incident & {
+  occurred_at_precision: string | null;
+  needs_review: boolean;
+  confidence_notes: string[] | null;
+  geocode_method: string | null;
+  is_synthetic: boolean;
+  created_at: string;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  review_note: string | null;
+};
 
-  if (error) throw new Error(`fetchReviewQueue failed: ${error.message}`);
-  return data as Incident[];
+// The three moderation states (see schema.sql):
+//   pending  = needs_review                      (not verified=false: rejected
+//   approved = verified                           rows are unverified too, but
+//   rejected = !verified && !needs_review         have been reviewed)
+export type ReviewStatus = 'pending' | 'approved' | 'rejected';
+export type EntryType = 'historical_extracted' | 'crowdsourced' | 'official';
+
+const STATUS_FILTER: Record<ReviewStatus, Record<string, boolean>> = {
+  pending: { needs_review: true },
+  approved: { verified: true },
+  rejected: { verified: false, needs_review: false },
+};
+
+function filterFor(status: ReviewStatus, entryType?: EntryType): Record<string, boolean | string> {
+  return entryType ? { ...STATUS_FILTER[status], entry_type: entryType } : STATUS_FILTER[status];
 }
 
-export async function setIncidentVerified(id: number, verified: boolean): Promise<void> {
-  const { error } = await supabase
+// Pending: oldest first (work the queue in order). Reviewed: most recently
+// reviewed first.
+export async function fetchModerationList(status: ReviewStatus, entryType?: EntryType): Promise<ReviewItem[]> {
+  const q = supabase
     .from('incidents')
-    .update({ verified, needs_review: !verified })
-    .eq('id', id);
+    .select(
+      'id, occurred_at, occurred_at_precision, road, location_description, lat, lng, region, accident_type, vehicles_involved, fatalities, injuries_count, injuries_description, source_name, source_url, entry_type, verified, needs_review, confidence_notes, geocode_method, is_synthetic, created_at, reviewed_by, reviewed_at, review_note',
+    )
+    .match(filterFor(status, entryType));
 
-  if (error) throw new Error(`setIncidentVerified failed: ${error.message}`);
+  const { data, error } = await (status === 'pending'
+    ? q.order('created_at', { ascending: true })
+    : q.order('reviewed_at', { ascending: false, nullsFirst: false }));
+  if (error) throw new Error(`fetchModerationList failed: ${error.message}`);
+  return data as ReviewItem[];
+}
+
+export async function fetchModerationCounts(entryType?: EntryType): Promise<Record<ReviewStatus, number>> {
+  const statuses: ReviewStatus[] = ['pending', 'approved', 'rejected'];
+  const results = await Promise.all(
+    statuses.map(async (status) => {
+      const { count, error } = await supabase
+        .from('incidents')
+        .select('id', { count: 'exact', head: true })
+        .match(filterFor(status, entryType));
+      if (error) throw new Error(`fetchModerationCounts failed: ${error.message}`);
+      return [status, count ?? 0] as const;
+    }),
+  );
+  return Object.fromEntries(results) as Record<ReviewStatus, number>;
+}
+
+// Send an approved/rejected incident back to the pending queue (an approved
+// one leaves the public map immediately). `note` is required; the previous
+// decision is kept in confidence_notes — see reopen_incident() in schema.sql.
+export async function reopenIncident(id: number, note: string): Promise<void> {
+  const { error } = await supabase.rpc('reopen_incident', { p_id: id, p_note: note });
+  if (error) throw new Error(`reopenIncident failed: ${error.message}`);
+}
+
+// Place/move an incident's coordinate by hand (pending or approved — see
+// set_incident_location() in schema.sql). `note` is required: it's recorded
+// in confidence_notes as how the location was derived.
+export async function setIncidentLocation(id: number, lat: number, lng: number, note: string): Promise<void> {
+  const { error } = await supabase.rpc('set_incident_location', { p_id: id, p_lat: lat, p_lng: lng, p_note: note });
+  if (error) throw new Error(`setIncidentLocation failed: ${error.message}`);
+}
+
+// reviewed_by uuid → email, for showing who reviewed what.
+export async function fetchReviewerEmails(ids: string[]): Promise<Map<string, string>> {
+  if (ids.length === 0) return new Map();
+  const { data, error } = await supabase.rpc('reviewer_emails', { p_ids: ids });
+  if (error) throw new Error(`fetchReviewerEmails failed: ${error.message}`);
+  return new Map((data as { reviewer_id: string; reviewer_email: string }[]).map((r) => [r.reviewer_id, r.reviewer_email]));
+}
+
+// Approve (→ public map) or reject (→ kept, hidden) a pending incident.
+// Goes through the review_incident() function rather than an UPDATE: it
+// records who/when/why and can't touch any other column. Fails if the row
+// was already reviewed (e.g. by another moderator in the meantime).
+export async function reviewIncident(id: number, approve: boolean, note?: string): Promise<void> {
+  const { error } = await supabase.rpc('review_incident', { p_id: id, p_approve: approve, p_note: note ?? null });
+  if (error) throw new Error(`reviewIncident failed: ${error.message}`);
 }

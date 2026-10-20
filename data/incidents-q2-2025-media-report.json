@@ -1,0 +1,89 @@
+[
+  {
+    "occurred_at": "2025-07-22T00:00:00Z",
+    "occurred_at_precision": "date_only",
+    "road": "C14",
+    "location_description": "approximately 105km from Walvis Bay towards Solitaire, at a bend; vehicle struck a sandbank on the roadside",
+    "lat": null,
+    "lng": null,
+    "region": null,
+    "accident_type": "rollover",
+    "vehicles_involved": ["car (sole occupant, type not specified in source)"],
+    "fatalities": 0,
+    "injuries_count": 1,
+    "injuries_description": "sole occupant/driver injured, described as non-life-threatening; required Advanced Life Support intervention at the scene before hospital transport",
+    "source_name": "Westcoast Safety Initiative (Facebook/online, via MVA Fund Media Intelligence Report Q2 2025/26)",
+    "source_url": null,
+    "entry_type": "historical_extracted",
+    "verified": false,
+    "needs_review": true,
+    "confidence_notes": [
+      "exact time not given, only 'Tuesday afternoon' and the date 22/07/2025",
+      "location is distance-along-road from a town, not a fixed point — needs real linear referencing along the C14 (see pipelines/geocoding/README.md), not computed here",
+      "region not stated in source; C14 runs from Erongo (Walvis Bay) towards Hardap (Solitaire) — this stretch's exact region needs confirming once the coordinate is resolved, not guessed",
+      "vehicle type/make not specified, only 'the vehicle'",
+      "driver's identity and gender not given"
+    ],
+    "geocode_method": null,
+    "is_synthetic": false
+  },
+  {
+    "occurred_at": "2025-08-30T07:00:00+02:00",
+    "occurred_at_precision": "exact",
+    "road": "B1",
+    "location_description": "near Mariental, Hardap region — sources disagree on exact distance/direction: BBC says '270km south of Windhoek, outside the town of Mariental'; Windhoek Observer says 'about seven kilometres north of Mariental'; Republikein says 'ongeveer vyf kilometer noord van Mariental' (about five kilometres north of Mariental); a Namibian Sun follow-up piece says 'on the B1 road, about 10 kilometres towards Kalkrand' (south of Mariental) — these are not reconcilable from the source text alone",
+    "lat": null,
+    "lng": null,
+    "region": "Hardap",
+    "accident_type": "collision",
+    "vehicles_involved": [
+      "Toyota Quantum minibus (allocated for Namibian Police officer transport, carrying 6: 5 officers + 1 civilian per Windhoek Observer)",
+      "Namibian Correctional Service (NCS) van (designated for inmate transport, carrying 13 correctional officers per Namibian Sun/BBC)"
+    ],
+    "fatalities": 16,
+    "injuries_count": 4,
+    "injuries_description": "4 officers hospitalised in Windhoek, described as critical/receiving treatment; nature of injuries not itemised per person",
+    "source_name": "Multiple — BBC News, The Namibian, Namibian Sun, Republikein, Windhoek Observer, New Era, NBC Digital News, One Africa Online (compiled via MVA Fund Media Intelligence Report Q2 2025/26)",
+    "source_url": null,
+    "entry_type": "historical_extracted",
+    "verified": false,
+    "needs_review": true,
+    "confidence_notes": [
+      "MAJOR DISCREPANCY: exact location (distance/direction from Mariental) is not consistent across sources — see location_description",
+      "MAJOR DISCREPANCY: fatality breakdown doesn't cleanly reconcile — 14 officers + 2 civilians = 16 is the widely repeated figure, but the police van's passenger manifest (5 officers + 1 civilian, per Windhoek Observer) only accounts for 1 civilian, not 2; the second civilian's vehicle/role isn't clear from any single source read here",
+      "one source (New Era, 'Government to probe Mariental accident', 3 Sept) says the accident 'occurred last Sunday' while every other source (BBC, Windhoek Observer, Namibian Sun, Republikein) says Saturday — Saturday 30 Aug 2025 is treated as correct here since it's the majority account and matches the calendar (30 Aug 2025 is in fact a Saturday), but this should be verified against a primary source (police report) before marking verified",
+      "Windhoek Observer notes a pregnant victim's unborn twins as a 17th/18th loss not counted in the official 16 — not included in `fatalities` here since it's not a standard count, but worth a note if this incident is used for reporting",
+      "vehicle allocation mix-up (inmate-transport van used for officers) was itself the subject of a government investigation reported in this same period — this is a quote/context detail, not a data field, but relevant background",
+      "named victim list (16 names, ranks, genders) is available in full in New Era's 3 Sept article — not reproduced here as structured data since the schema doesn't have a per-victim table; flagging in case a future victims table is wanted",
+      "exact cause (speed, overloading) was still under police investigation as of the latest article in this report (10 Sept) — not stated as a confirmed cause"
+    ],
+    "geocode_method": null,
+    "is_synthetic": false
+  },
+  {
+    "occurred_at": "2025-09-16T00:00:00+02:00",
+    "occurred_at_precision": "date_only",
+    "road": "Western Bypass (B1)",
+    "location_description": "at the bridge on the Western Bypass between Hakahana Service Station and China Town, Windhoek",
+    "lat": null,
+    "lng": null,
+    "region": "Khomas",
+    "accident_type": "pedestrian",
+    "vehicles_involved": ["unspecified vehicle"],
+    "fatalities": 1,
+    "injuries_count": 3,
+    "injuries_description": "3 passengers in the striking vehicle were injured; nature/severity not given",
+    "source_name": "Windhoek Observer",
+    "source_url": null,
+    "entry_type": "historical_extracted",
+    "verified": false,
+    "needs_review": true,
+    "confidence_notes": [
+      "pedestrian's identity was not released by Windhoek City Police as of publication, pending next-of-kin notification — described only as a 20-year-old man",
+      "exact time not given, only 'Tuesday morning'; 16 Sept 2025 is confirmed as a Tuesday so this is treated as the occurrence date, but 'morning' isn't a specific time",
+      "vehicle type/driver not described in source"
+    ],
+    "geocode_method": null,
+    "is_synthetic": false
+  }
+]

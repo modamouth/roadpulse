@@ -1,20 +1,12 @@
 import L from 'leaflet';
 import { fetchRegions, fetchIncidents, type RegionStat, type Incident } from './api/client';
 import { severityColor } from './map/severity';
+import { esc } from './lib/html';
+import { addBasemap } from './map/basemap';
 
 const map = L.map('map', { zoomControl: true, attributionControl: true }).setView([-22.5, 17.3], 6);
 
-// Standard OSM tiles, darkened in CSS (.basemap-dark in style.css). The
-// prototype used CARTO's dark_all tiles, which now return an
-// "API KEY REQUIRED" placeholder for every request. OSM's tile server is
-// fine for development and light traffic; before a public launch, check
-// https://operations.osmfoundation.org/policies/tiles/ and move to a
-// self-hosted or commercial tile source if traffic warrants it.
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  className: 'basemap-dark',
-  maxZoom: 19,
-}).addTo(map);
+addBasemap(map);
 
 const regionLayer = L.layerGroup().addTo(map);
 const incidentLayer = L.layerGroup().addTo(map);
@@ -60,7 +52,7 @@ function renderRegions() {
     });
 
     marker.bindPopup(
-      `<b>${r.region}</b>` +
+      `<b>${esc(r.region)}</b>` +
         `<div class="popup-row"><span class="k">Crashes (${r.year})</span><span class="v">${r.crashes.toLocaleString()}</span></div>` +
         `<div class="popup-row"><span class="k">Fatalities (${r.year})</span><span class="v">${r.fatalities.toLocaleString()}</span></div>` +
         `<div class="popup-row"><span class="k">Injuries (${r.year})</span><span class="v">${r.injuries.toLocaleString()}</span></div>` +
@@ -88,17 +80,18 @@ function renderIncidents() {
       fillOpacity: 0.95,
     });
 
+    // Every field escaped: approved crowdsourced reports are user-written.
     marker.bindPopup(
-      `<b>${inc.accident_type ?? 'Incident'} — ${inc.road ?? 'unknown road'}</b>` +
-        `<div class="popup-row"><span class="k">Location</span><span class="v">${inc.location_description ?? '—'}</span></div>` +
+      `<b>${esc(inc.accident_type ?? 'Incident')} — ${esc(inc.road ?? 'unknown road')}</b>` +
+        `<div class="popup-row"><span class="k">Location</span><span class="v">${esc(inc.location_description ?? '—')}</span></div>` +
         (inc.vehicles_involved
-          ? `<div class="popup-row"><span class="k">Vehicles</span><span class="v">${inc.vehicles_involved.join(', ')}</span></div>`
+          ? `<div class="popup-row"><span class="k">Vehicles</span><span class="v">${esc(inc.vehicles_involved.join(', '))}</span></div>`
           : '') +
         (inc.fatalities != null
-          ? `<div class="popup-row"><span class="k">Fatalities</span><span class="v">${inc.fatalities}</span></div>`
+          ? `<div class="popup-row"><span class="k">Fatalities</span><span class="v">${esc(inc.fatalities)}</span></div>`
           : '') +
-        `<div class="popup-row"><span class="k">Source</span><span class="v">${inc.source_name ?? '—'}</span></div>` +
-        `<div class="popup-foot">${inc.entry_type}</div>`,
+        `<div class="popup-row"><span class="k">Source</span><span class="v">${esc(inc.source_name ?? '—')}</span></div>` +
+        `<div class="popup-foot">${esc(inc.entry_type)}</div>`,
     );
     marker.addTo(incidentLayer);
   }
@@ -159,5 +152,5 @@ document.getElementById('mobileToggle')!.addEventListener('click', () => {
 });
 
 init().catch((err) => {
-  console.error('Failed to load dashboard data — is the backend running on :4000?', err);
+  console.error('Failed to load dashboard data from Supabase — check VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY in frontend/.env', err);
 });

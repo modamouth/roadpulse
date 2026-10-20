@@ -74,6 +74,18 @@ CREATE TABLE IF NOT EXISTS incidents (
 CREATE INDEX IF NOT EXISTS incidents_location_idx ON incidents USING GIST (location);
 CREATE INDEX IF NOT EXISTS incidents_verified_idx ON incidents (verified) WHERE verified = true;
 
+-- Moderation audit trail. Added after the initial table, so ALTER ... IF NOT
+-- EXISTS keeps this file re-runnable against an existing database. Only
+-- review_incident() (below) writes these.
+--   verified=false, needs_review=true   → pending, in the review queue
+--   verified=true,  needs_review=false  → approved, on the public map
+--   verified=false, needs_review=false  → rejected (kept, not shown)
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS reviewed_by UUID REFERENCES auth.users (id) ON DELETE SET NULL;
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS reviewed_at TIMESTAMPTZ;
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS review_note TEXT;
+
+CREATE INDEX IF NOT EXISTS incidents_review_queue_idx ON incidents (created_at) WHERE needs_review = true;
+
 -- Keep `location` in sync with lat/lng whenever a row is inserted or updated.
 CREATE OR REPLACE FUNCTION incidents_set_location() RETURNS trigger AS $$
 BEGIN
@@ -177,15 +189,179 @@ CREATE POLICY "incidents: public can submit crowdsourced reports"
     entry_type = 'crowdsourced'
     AND verified = false
     AND needs_review = true
+    AND reviewed_by IS NULL
+    AND reviewed_at IS NULL
+    AND review_note IS NULL
   );
 
--- incidents: only moderators can change verified/needs_review.
+-- incidents: no UPDATE policy at all — the only way a public/authenticated
+-- client changes an incident is review_incident() below, which can touch
+-- nothing but the verification + audit columns. (This replaces an earlier
+-- "moderators can update" policy that let a moderator rewrite any column.)
+-- If moderators later need to correct fields (e.g. fix a coordinate), add a
+-- separate, column-scoped function rather than reopening a blanket policy.
 DROP POLICY IF EXISTS "incidents: moderators can update verification" ON incidents;
-CREATE POLICY "incidents: moderators can update verification"
-  ON incidents FOR UPDATE
-  TO authenticated
-  USING (is_moderator())
-  WITH CHECK (is_moderator());
+
+-- Approve or reject one pending incident. SECURITY DEFINER so it can update
+-- despite there being no UPDATE policy; it does its own moderator check.
+-- Only acts on rows still pending (needs_review = true), so a second
+-- moderator can't silently overwrite an earlier decision.
+CREATE OR REPLACE FUNCTION review_incident(p_id INTEGER, p_approve BOOLEAN, p_note TEXT DEFAULT NULL)
+RETURNS void AS $$
+BEGIN
+  IF NOT is_moderator() THEN
+    RAISE EXCEPTION 'only moderators can review incidents' USING ERRCODE = '42501';
+  END IF;
+
+  UPDATE incidents
+     SET verified     = p_approve,
+         needs_review = false,
+         reviewed_by  = auth.uid(),
+         reviewed_at  = now(),
+         review_note  = NULLIF(trim(p_note), '')
+   WHERE id = p_id
+     AND needs_review = true;
+
+  IF NOT FOUND THEN
+    RAISE EXCEPTION 'incident % not found or already reviewed', p_id USING ERRCODE = 'P0002';
+  END IF;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public;
+
+-- Supabase grants EXECUTE on new public functions to anon by default.
+-- The moderator check would refuse anon anyway; this keeps it off the
+-- anon surface entirely.
+REVOKE EXECUTE ON FUNCTION review_incident(INTEGER, BOOLEAN, TEXT) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION review_incident(INTEGER, BOOLEAN, TEXT) TO authenticated;
+
+-- Send an approved or rejected incident back to the pending queue, e.g. to
+-- re-check it or correct a mistaken decision. An approved row leaves the
+-- public map immediately. The reason is required, and the previous decision
+-- (who, when, their note) is appended to confidence_notes before the review
+-- columns are cleared, so the history isn't lost when it's reviewed again.
+CREATE OR REPLACE FUNCTION reopen_incident(p_id INTEGER, p_note TEXT)
+RETURNS void AS $$
+DECLARE
+  prev     RECORD;
+  who      TEXT;
+  prev_who TEXT;
+BEGIN
+  IF NOT is_moderator() THEN
+    RAISE EXCEPTION 'only moderators can reopen incidents' USING ERRCODE = '42501';
+  END IF;
+  IF p_note IS NULL OR trim(p_note) = '' THEN
+    RAISE EXCEPTION 'a reason for sending this back to pending is required' USING ERRCODE = '22023';
+  END IF;
+
+  SELECT verified, reviewed_by, reviewed_at, review_note INTO prev
+    FROM incidents WHERE id = p_id AND needs_review = false FOR UPDATE;
+  IF NOT FOUND THEN
+    RAISE EXCEPTION 'incident % not found or already pending', p_id USING ERRCODE = 'P0002';
+  END IF;
+
+  SELECT email INTO who FROM auth.users WHERE id = auth.uid();
+  SELECT email INTO prev_who FROM auth.users WHERE id = prev.reviewed_by;
+
+  UPDATE incidents
+     SET verified     = false,
+         needs_review = true,
+         reviewed_by  = NULL,
+         reviewed_at  = NULL,
+         review_note  = NULL,
+         confidence_notes = coalesce(confidence_notes, '{}') || format(
+           'sent back to pending by %s on %s: %s (was %s by %s on %s%s)',
+           coalesce(who, 'a moderator'),
+           to_char(now() AT TIME ZONE 'Africa/Windhoek', 'YYYY-MM-DD'),
+           trim(p_note),
+           CASE WHEN prev.verified THEN 'approved' ELSE 'rejected' END,
+           coalesce(prev_who, 'unknown'),
+           coalesce(to_char(prev.reviewed_at AT TIME ZONE 'Africa/Windhoek', 'YYYY-MM-DD'), 'unknown date'),
+           CASE WHEN prev.review_note IS NOT NULL THEN format(', note: "%s"', prev.review_note) ELSE '' END)
+   WHERE id = p_id;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public;
+
+REVOKE EXECUTE ON FUNCTION reopen_incident(INTEGER, TEXT) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION reopen_incident(INTEGER, TEXT) TO authenticated;
+
+-- Place (or move) a pending incident's coordinate by hand — the review UI's
+-- "Set location" map pin. Column-scoped on purpose (lat/lng/geocode_method/
+-- confidence_notes only), per the note on the missing UPDATE policy above.
+--
+-- Per CLAUDE.md, an estimated location must say how it was derived: the
+-- moderator's note is required, and is appended to confidence_notes along
+-- with who pinned it and any coordinate it replaced. Pinning never changes
+-- the review status: a pending row stays pending (pinning is not
+-- approving). Approved rows can be pinned too — an incident can be verified
+-- as real before its exact spot is known — and that pin is public at once.
+-- Rejected rows can't be.
+CREATE OR REPLACE FUNCTION set_incident_location(p_id INTEGER, p_lat NUMERIC, p_lng NUMERIC, p_note TEXT)
+RETURNS void AS $$
+DECLARE
+  prev RECORD;
+  who  TEXT;
+BEGIN
+  IF NOT is_moderator() THEN
+    RAISE EXCEPTION 'only moderators can set incident locations' USING ERRCODE = '42501';
+  END IF;
+  IF p_note IS NULL OR trim(p_note) = '' THEN
+    RAISE EXCEPTION 'a note on how this location was chosen is required' USING ERRCODE = '22023';
+  END IF;
+  -- Namibia's extent, padded slightly; catches a mis-click into the ocean or
+  -- a neighbouring country rather than validating precisely.
+  IF p_lat IS NULL OR p_lng IS NULL
+     OR p_lat NOT BETWEEN -29.5 AND -16.5
+     OR p_lng NOT BETWEEN 11.5 AND 25.5 THEN
+    RAISE EXCEPTION 'location (%, %) is outside Namibia', p_lat, p_lng USING ERRCODE = '22023';
+  END IF;
+
+  SELECT lat, lng, geocode_method INTO prev
+    FROM incidents WHERE id = p_id AND (needs_review = true OR verified = true) FOR UPDATE;
+  IF NOT FOUND THEN
+    RAISE EXCEPTION 'incident % not found or rejected', p_id USING ERRCODE = 'P0002';
+  END IF;
+
+  SELECT email INTO who FROM auth.users WHERE id = auth.uid();
+
+  UPDATE incidents
+     SET lat = round(p_lat, 6),
+         lng = round(p_lng, 6),
+         geocode_method = 'manual_pin',
+         confidence_notes = coalesce(confidence_notes, '{}') || format(
+           'location manually pinned by %s on %s: %s%s',
+           coalesce(who, 'a moderator'),
+           to_char(now() AT TIME ZONE 'Africa/Windhoek', 'YYYY-MM-DD'),
+           trim(p_note),
+           CASE WHEN prev.lat IS NOT NULL
+                THEN format(' (replaced %s, %s from %s)', prev.lat, prev.lng, coalesce(prev.geocode_method, 'unknown method'))
+                ELSE '' END)
+   WHERE id = p_id;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public;
+
+REVOKE EXECUTE ON FUNCTION set_incident_location(INTEGER, NUMERIC, NUMERIC, TEXT) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION set_incident_location(INTEGER, NUMERIC, NUMERIC, TEXT) TO authenticated;
+
+-- Reviewer emails for the review UI's Approved/Rejected tabs. Moderators can
+-- only read their own `profiles` row and never `auth.users`, so this resolves
+-- reviewed_by ids for them — and only ids that actually reviewed something,
+-- so it can't be used to look up arbitrary accounts.
+CREATE OR REPLACE FUNCTION reviewer_emails(p_ids UUID[])
+RETURNS TABLE (reviewer_id UUID, reviewer_email TEXT) AS $$
+BEGIN
+  IF NOT is_moderator() THEN
+    RAISE EXCEPTION 'only moderators can look up reviewers' USING ERRCODE = '42501';
+  END IF;
+  RETURN QUERY
+    SELECT u.id, u.email::text
+      FROM auth.users u
+     WHERE u.id = ANY (p_ids)
+       AND EXISTS (SELECT 1 FROM incidents i WHERE i.reviewed_by = u.id);
+END;
+$$ LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path = public;
+
+REVOKE EXECUTE ON FUNCTION reviewer_emails(UUID[]) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION reviewer_emails(UUID[]) TO authenticated;
 
 -- profiles: a user can read (and only read) their own row — enough for
 -- the frontend to check "am I a moderator?" and show/hide the review
