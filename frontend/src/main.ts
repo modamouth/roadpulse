@@ -4,10 +4,15 @@ import { severityColor } from './map/severity';
 
 const map = L.map('map', { zoomControl: true, attributionControl: true }).setView([-22.5, 17.3], 6);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-  subdomains: 'abcd',
+// Standard OSM tiles, darkened in CSS (.basemap-dark in style.css). The
+// prototype used CARTO's dark_all tiles, which now return an
+// "API KEY REQUIRED" placeholder for every request. OSM's tile server is
+// fine for development and light traffic; before a public launch, check
+// https://operations.osmfoundation.org/policies/tiles/ and move to a
+// self-hosted or commercial tile source if traffic warrants it.
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  className: 'basemap-dark',
   maxZoom: 19,
 }).addTo(map);
 

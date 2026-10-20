@@ -23,10 +23,13 @@ considered and rejected; don't re-propose them without a new reason.
   near Okahandja–Otjiwarongo, extracted from a news Facebook post, geocoded by
   straight-line interpolation (approximation, not exact — see
   `pipelines/geocoding/README.md`).
-- **A real `frontend/`+`backend/` implementation, targeting Supabase** —
-  schema, RLS policies, and `supabase-js` client calls are written (see
-  step 1/2 below), but no Supabase project has actually been provisioned
-  yet, so none of this has been run against a live database.
+- **A real `frontend/`+`backend/` implementation on a live Supabase
+  project** — schema, RLS policies, and `supabase-js` client calls (see
+  step 1/2 below), provisioned, migrated, seeded, and verified end to end
+  (map loads live data; RLS checked with the public key). The project is in
+  **eu-west-1 (Ireland)** — deliberately kept there rather than Frankfurt,
+  don't propose moving it. Its URL/keys live only in the gitignored `.env`
+  files.
 
 ## What's next, roughly in order
 
@@ -35,22 +38,41 @@ considered and rejected; don't re-propose them without a new reason.
    both MongoDB and a bare self-hosted Postgres). `backend/src/db/schema.sql`
    has the `regional_stats`/`incidents`/`profiles` tables, RLS policies, and
    the `is_moderator()` helper; `migrate.ts`/`seed.ts` apply it and load
-   `data/mva-fund-2024/` + `data/sample-incidents.json` against
-   `DATABASE_URL` (Supabase's direct Postgres connection string — bypasses
-   RLS as the `postgres` role). Reads and most writes now happen directly
+   `frontend/src/data/regions.json` (the compact per-region extract of
+   `data/mva-fund-2024/`) + `data/sample-incidents.json` against
+   `DATABASE_URL` (Supabase's session pooler string — bypasses RLS as the
+   `postgres` role). Reads and most writes now happen directly
    from the frontend via `supabase-js`, under RLS — there is no
    `GET /api/regions`/`GET /api/incidents` Express route any more. The one
    thing still behind Express is `POST /api/pipeline/ingest`
    (`backend/src/routes/pipeline.ts`), for the extraction pipeline's writes,
    which need service-role credentials RLS deliberately keeps off public
-   clients. Still needs doing: a real Supabase project created and its
-   keys filled into `.env` (nothing has been provisioned yet, this is
-   schema + client code only), and running `npm run db:migrate` /
-   `npm run db:seed` against it.
+   clients.
+
+   Things learned bringing it up against the real project — don't undo:
+   - **Connect via the session pooler** (port 5432), not the direct
+     `db.<ref>.supabase.co` host (IPv6-only, unreachable on IPv4 networks)
+     and not the transaction pooler (port 6543; no DDL). See `.env.example`.
+   - **Env files:** server-side vars in the repo-root `.env`, loaded by
+     `backend/src/env.ts` (npm workspace scripts run with cwd=`backend/`, so
+     plain `dotenv/config` missed it); `VITE_*` vars in `frontend/.env`.
+   - **PostGIS goes in the `extensions` schema.** In `public`, its
+     `spatial_ref_sys` table was writable with the public API key.
+   - **Public inserts can't read their row back** (`.insert().select()`
+     fails under RLS — anon can't SELECT unverified rows), so
+     `submitIncident()` returns nothing.
+   - `npm run db:seed` isn't idempotent for incidents — re-running it
+     duplicates the sample incident. Rebuild from a clean schema instead.
+   - **Node 22+** (`.nvmrc`): supabase-js won't construct a client on
+     Node 20 (no native WebSocket), which matters once backend/pipeline
+     code uses it.
 
 2. **Frontend: port the prototype into the real app.** — **mostly done.**
    `frontend/src/main.ts`, `style.css`, `map/severity.ts` port the
-   prototype's Leaflet setup, color scale, and dark map-console UI.
+   prototype's Leaflet setup, color scale, and dark map-console UI. The
+   basemap is standard OSM tiles darkened with a CSS filter — the
+   prototype's CARTO `dark_all` tiles now need an API key. Check OSM's tile
+   usage policy before a public launch.
    `frontend/src/api/client.ts` fetches `regional_stats`/`incidents` from
    Supabase via `frontend/src/api/supabase.ts` (needs `VITE_SUPABASE_URL`/
    `VITE_SUPABASE_ANON_KEY` in `frontend/.env`). `submitIncident`,
@@ -102,10 +124,9 @@ considered and rejected; don't re-propose them without a new reason.
 
 ## Open questions for the user (don't guess on these)
 
-- ~~Which Postgres hosting~~ — **settled: Supabase.** See
-  `docs/DECISIONS.md`. Still needs a real Supabase project provisioned —
-  nothing has been created yet, only schema/client code written against
-  the assumption.
+- ~~Which Postgres hosting~~ — **settled: managed Supabase, independent of
+  the user's Odoo Online / n8n Cloud setup.** See `docs/DECISIONS.md`.
+  Provisioned in eu-west-1 (Ireland) and kept there.
 - Facebook/news scraping legality and access — Meta's Graph API has real
   restrictions on page scraping; confirm the intended approach before
   building it.

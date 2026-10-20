@@ -44,9 +44,11 @@ export type Incident = {
 export async function fetchRegions(year: number): Promise<RegionStat[]> {
   const { data, error } = await supabase
     .from('regional_stats')
+    // One string literal, not `'...' + '...'`: supabase-js parses the column
+    // list at the type level, and a concatenated (non-literal) string types
+    // the rows as GenericStringError, which breaks `tsc`.
     .select(
-      'region, year, crashes, fatalities, injuries, population, casualties_per_100000, ' +
-        'pedestrian_pct, rollover_pct, centroid_lat, centroid_lng',
+      'region, year, crashes, fatalities, injuries, population, casualties_per_100000, pedestrian_pct, rollover_pct, centroid_lat, centroid_lng',
     )
     .eq('year', year)
     .order('region');
@@ -64,9 +66,7 @@ export async function fetchIncidents(): Promise<Incident[]> {
   const { data, error } = await supabase
     .from('incidents')
     .select(
-      'id, occurred_at, occurred_at_precision, road, location_description, lat, lng, region, ' +
-        'accident_type, vehicles_involved, fatalities, injuries_count, injuries_description, ' +
-        'source_name, source_url, entry_type, verified',
+      'id, occurred_at, occurred_at_precision, road, location_description, lat, lng, region, accident_type, vehicles_involved, fatalities, injuries_count, injuries_description, source_name, source_url, entry_type, verified',
     )
     .eq('verified', true)
     .order('occurred_at', { ascending: false, nullsFirst: false });
